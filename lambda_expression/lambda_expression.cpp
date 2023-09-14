@@ -7,7 +7,7 @@
 using std::cout;
 using std::endl;
 using std::vector;
-/*
+
 int main()
 {
     // vector of ints
@@ -21,22 +21,14 @@ int main()
         for(int i=2; i<=sqrt(x);i++){
             if(x%i==0){
                 printf("%i is not prime \n", x);
+                notPrime = true;
                 break;
             } 
-        } });
+        }
+        if(!notPrime){
+            printf("%i is prime \n", x);
+        }
+         });
 
-}*/
-
-void abssort(float* x, unsigned n) {
-    std::sort(x, x + n,
-        // Lambda expression begins
-        [](float a, float b) {
-            return (std::abs(a) < std::abs(b));
-        } // end of lambda expression
-    );
 }
 
-int main(){
-    float r = .5;
-    abssort(&r, 4);
-}
