@@ -8,20 +8,22 @@ using std::cout;
 using std::endl;
 using std::vector;
 //From geeksforgeeks.com
+
+int a = 2;
+
  
-using namespace std;
- 
-// Driver code
-int& fun()
+int& fun(int& b)
 {
-    static int x = 10;
-    //cout << x << endl;
-    return x;
+	b++;
+    //may be acceptable since b is passed, a local var on the stack should not be returned
+    return b;
 }
- 
+
 int main()
 {
-    fun() = 30;
-    cout << fun();
-    return 0;
+    int& c = fun(a);
+    //c is a referene to a after it has been incremented
+    cout << c << endl;
+    //original has been incremented;
+    cout << a << endl;
 }

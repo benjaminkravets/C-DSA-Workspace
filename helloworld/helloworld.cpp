@@ -1,27 +1,17 @@
 #include <iostream>
-#include <list>
 #include <vector>
-#include <algorithm>
-#include <vector>
-#include <string>
-using std::cout;
-using std::endl;
-using std::vector;
-//From geeksforgeeks.com
  
 using namespace std;
- 
-// Driver code
-int& fun()
-{
-    static int x = 10;
-    //cout << x << endl;
-    return x;
-}
- 
+
 int main()
 {
-    fun() = 30;
-    cout << fun();
+    int x[2][4] = {{0, 1, 2, 3}, {4, 5, 6, 7}};
+    for(int i = 0; i < 2; i++){
+        for(int j = 0; j < 4; j++){
+            cout << x[i][j] << endl;
+        }
+    }
+
+  
     return 0;
 }
