@@ -4,17 +4,19 @@
 
 using namespace std;
 
-const int l = 4;
-
+void fun(char* arr)
+{
+    int i;
+    unsigned int n = strlen(arr);
+    cout << "n = " << n << endl;
+    for (i = 0; i < n; i++)
+        cout << arr[i] << " ";
+}
+ 
+// Driver program
 int main()
 {
-    int arr2[3][4] = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
-    
-    cout << arr2[1][3] << endl;
-    cout << *(*(arr2+1)+3) << endl;
-
-    int arr3[2][3][2] = { {{1, 2}, {3, 4}, {5, 6}}, {{7, 8}, {9, 10}, {11, 12}} };
-
-    cout << arr3[1][1][0] << endl;
-    cout << *(*(*(arr3+1)+1))+0 << endl;
+    char arr[] = "geeksquiz";
+    fun(arr);
+    return 0;
 }
