@@ -4,40 +4,38 @@
 #include <string>
 #include <sstream>
 #include <string.h>
-
+#include <regex>
 using namespace std;
-
+ 
+// Defining a Union
+union GFG {
+    int Geek1;
+    char Geek2;
+    float Geek3;
+};
+ 
+// Driver Code
 int main()
 {
-    // Initializing string
-    string str = "geeksforgeeks is for geeks";
-  
-    // Displaying string
-    cout << "The initial string is : ";
-    cout << str << endl;
-  
-    // Resizing string using resize()
-    str.resize(13);
-  
-    // Displaying string
-    cout << "The string after resize operation is : ";
-    cout << str << endl;
-  
-    // Displaying capacity of string
-    cout << "The capacity of string is : ";
-    cout << str.capacity() << endl;
-  
-    // Displaying length of the string
-    cout << "The length of the string is :" << str.length()
-         << endl;
-  
-    // Decreasing the capacity of string
-    // using shrink_to_fit()
-    str.shrink_to_fit();
-  
-    // Displaying string
-    cout << "The new capacity after shrinking is : ";
-    cout << str.capacity() << endl;
-  
+    // Initializing Union
+    union GFG G1;
+ 
+    G1.Geek1 = 34;
+ 
+    // Printing values
+    cout << "The first value at "
+         << "the allocated memory : " << G1.Geek1 << endl;
+ 
+    G1.Geek2 = 'G';
+ 
+    cout << "The next value stored "
+         << "after removing the "
+         << "previous value : " << G1.Geek2 << endl;
+ 
+    G1.Geek3 = 34.34;
+ 
+    cout << "The Final value value "
+         << "at the same allocated "
+         << "memory space : " << G1.Geek3 << endl;
     return 0;
 }
