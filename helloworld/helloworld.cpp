@@ -7,30 +7,46 @@
 #include <regex>
 using namespace std;
 
-// base class
-union geek {
-    // Defining data members
-    int age;
-    char grade;
-    float GPA;
-};
-  
 int main()
 {
   
-    // Defining a union variable
-    union geek student1;
+    typedef int arr[3];
   
-    // Assigning values to data member of union geek and
-    // printing the values of data members
-    student1.age = 25;
-    cout << "Age : " << student1.age << endl;
+    // Making new 1D array
   
-    student1.grade = 'B';
-    cout << "Grade : " << student1.grade << endl;
+    arr array1{ 1 , 1, 1};
+      
   
-    student1.GPA = 4.5;
-    cout << "GPA : " << student1.GPA << endl;
+    cout << "Array output: "
+         << "\n";
+    for (int i = 0; i < 3; i++) {
+        cout << array1[i] << " ";
+    }
+    cout << "\n";
+  
+    // Making new 2D array
+    // Matrix is an array of arrays with size
+    // ( 3 X 3 )
+    arr matrix[3];
+  
+    cout << "Matrix output: "
+         << "\n";
+  
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            // Initializing the matrix
+            matrix[i][j] = i * j;
+        }
+    }
+  
+    // Outputting the matrix
+  
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << matrix[i][j] << "  ";
+        }
+        cout << "\n";
+    }
   
     return 0;
 }
