@@ -1,22 +1,39 @@
+
 #include <iostream>
 using namespace std;
  
-class Demo{
-   int a, b;
-    public:
-    Demo()   // default constructor
+class base {
+private:
+    int private_variable;
+ 
+protected:
+    int protected_variable;
+ 
+public:
+    base()
     {
-        cout << "Default Constructor" << endl;
+        private_variable = 10;
+        protected_variable = 99;
     }
-    Demo(int a, int b):a(a),b(b)  //parameterised constructor
-    {
-        cout << "parameterized constructor -values" << a  << " "<< b << endl;
-    }
-      
-}instance(100,2);
-  
-  
-int main() {
-     return 0;
+     
+      // friend function declaration
+    friend void friendFunction(base& obj);
+};
+ 
+ 
+// friend function definition
+void friendFunction(base& obj)
+{
+    cout << "Private Variable: " << obj.private_variable
+         << endl;
+    cout << "Protected Variable: " << obj.protected_variable;
 }
-    
+ 
+// driver code
+int main()
+{
+    base object1;
+    friendFunction(object1);
+ 
+    return 0;
+}
