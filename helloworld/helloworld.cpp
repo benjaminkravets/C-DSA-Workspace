@@ -1,39 +1,47 @@
-
-#include <iostream>
+#include<iostream>
+#include<string.h>
 using namespace std;
- 
-class base {
-private:
-    int private_variable;
- 
-protected:
-    int protected_variable;
- 
-public:
-    base()
-    {
-        private_variable = 10;
-        protected_variable = 99;
-    }
-     
-      // friend function declaration
-    friend void friendFunction(base& obj);
-};
- 
- 
-// friend function definition
-void friendFunction(base& obj)
+class student
 {
-    cout << "Private Variable: " << obj.private_variable
-         << endl;
-    cout << "Protected Variable: " << obj.protected_variable;
-}
- 
-// driver code
+	int rno;
+	char name[50];
+	double fee;
+	public:
+	student(int,char[],double);
+	student(student &t)	 //copy constructor (member wise initialization)
+	{
+		rno=t.rno;
+		strcpy(name,t.name);
+		
+	}
+	void display();
+	void disp()
+	{
+		cout<<endl<<rno<<"\t"<<name;
+	}
+	
+};
+	student::student(int no, char n[],double f)
+	{
+		rno=no;
+		strcpy(name,n);
+		fee=f;
+	}
+
+void student::display()
+	{
+		cout<<endl<<rno<<"\t"<<name<<"\t"<<fee;
+	}
+	
+
+
 int main()
 {
-    base object1;
-    friendFunction(object1);
- 
-    return 0;
+	student s(1001,"Manjeet",10000);
+	s.display();
+	
+	student manjeet(s); //copy constructor called
+	manjeet.disp();
+	
+	return 0;
 }
