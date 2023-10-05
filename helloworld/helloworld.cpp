@@ -1,47 +1,35 @@
 #include<iostream>
 #include<string.h>
 using namespace std;
-class student
+
+
+class Sample
 {
-	int rno;
-	char name[50];
-	double fee;
-	public:
-	student(int,char[],double);
-	student(student &t)	 //copy constructor (member wise initialization)
-	{
-		rno=t.rno;
-		strcpy(name,t.name);
-		
-	}
-	void display();
-	void disp()
-	{
-		cout<<endl<<rno<<"\t"<<name;
-	}
-	
+    int id;
+    public:
+    void init(int x)
+    {
+        id=x;   
+    }   
+    Sample(){}  //default constructor with empty body
+     
+    Sample(Sample &t)   //copy constructor
+    {
+        id=t.id;
+    }
+    void display()
+    {
+        cout<<endl<<"ID="<<id;
+    }
 };
-	student::student(int no, char n[],double f)
-	{
-		rno=no;
-		strcpy(name,n);
-		fee=f;
-	}
-
-void student::display()
-	{
-		cout<<endl<<rno<<"\t"<<name<<"\t"<<fee;
-	}
-	
-
 
 int main()
 {
-	student s(1001,"Manjeet",10000);
-	s.display();
-	
-	student manjeet(s); //copy constructor called
-	manjeet.disp();
-	
-	return 0;
+    Sample obj1;
+    obj1.init(10);
+    obj1.display();
+     
+    Sample obj2(obj1); //or obj2=obj1;    copy constructor called
+    obj2.display();
+    return 0;
 }
