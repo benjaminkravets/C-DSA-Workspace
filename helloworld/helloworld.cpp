@@ -2,34 +2,37 @@
 #include<string.h>
 using namespace std;
 
-
-class Sample
-{
-    int id;
-    public:
-    void init(int x)
+static int Count = 0;     //It is static so that every class object has the same value 
+class Test {
+public:
+    // User-Defined Constructor
+    Test()
     {
-        id=x;   
-    }   
-    Sample(){}  //default constructor with empty body
-     
-    Sample(Sample &t)   //copy constructor
-    {
-        id=t.id;
+ 
+        // Number of times constructor is called
+        Count++;
+        cout << "No. of Object created: " << Count
+            << endl;
     }
-    void display()
+ 
+    // User-Defined Destructor
+    ~Test()
     {
-        cout<<endl<<"ID="<<id;
+         
+        cout << "No. of Object destroyed: " << Count    //It will print count in   
+            << endl;                                    //decending order
+        Count--;
+        // Number of times destructor is called
     }
 };
-
+ 
+// driver code
 int main()
 {
-    Sample obj1;
-    obj1.init(10);
-    obj1.display();
-     
-    Sample obj2(obj1); //or obj2=obj1;    copy constructor called
-    obj2.display();
+    Test t, t1, t2, t3;
+    char *q = "hi there";
+    string r = "hi there";
+    cout << q << endl;
+    cout << r << endl;
     return 0;
 }
