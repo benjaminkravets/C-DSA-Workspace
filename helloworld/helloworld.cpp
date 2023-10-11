@@ -2,37 +2,21 @@
 #include<string.h>
 using namespace std;
 
-static int Count = 0;     //It is static so that every class object has the same value 
-class Test {
+class parent {
+    // private destructor
+    ~parent() { cout << "destructor called" << endl; }
+ 
 public:
-    // User-Defined Constructor
-    Test()
-    {
- 
-        // Number of times constructor is called
-        Count++;
-        cout << "No. of Object created: " << Count
-            << endl;
-    }
- 
-    // User-Defined Destructor
-    ~Test()
-    {
-         
-        cout << "No. of Object destroyed: " << Count    //It will print count in   
-            << endl;                                    //decending order
-        Count--;
-        // Number of times destructor is called
-    }
+    parent() { cout << "constructor called" << endl; }
+    void destruct() { delete this; }
 };
  
-// driver code
 int main()
 {
-    Test t, t1, t2, t3;
-    char *q = "hi there";
-    string r = "hi there";
-    cout << q << endl;
-    cout << r << endl;
+    parent* p;
+    p = new parent;
+    // destructor called
+    p->destruct();
+ 
     return 0;
 }
