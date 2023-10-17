@@ -2,76 +2,30 @@
 #include<string.h>
 using namespace std;
 
-// Box Class
-class box {
-private:
-    int length;
-    int* breadth;
-    int height;
- 
+
+class A {
 public:
-    // Constructor
-    box()
-    {
-        breadth = new int;
-    }
- 
-    // Function to set the dimensions
-    // of the Box
-    void set_dimension(int len, int brea,
-                       int heig)
-    {
-        length = len;
-        *breadth = brea;
-        height = heig;
-    }
- 
-    // Function to show the dimensions
-    // of the Box
-    void show_data()
-    {
-        cout << " Length = " << length
-             << "\n Breadth = " << *breadth
-             << "\n Height = " << height
-             << endl;
-    }
- 
-    // Parameterized Constructors for
-    // for implementing deep copy
-    box(box& sample)
-    {
-        length = sample.length;
-        breadth = new int;
-        *breadth = *(sample.breadth);
-        height = sample.height;
-    }
- 
-    // Destructors
-    ~box()
-    {
-        delete breadth;
+    A() 
+    { 
+      cout << "A's Constructor Called " << 
+               endl; 
     }
 };
  
-// Driver Code
+class B {
+    static A a;
+ 
+public:
+    B() 
+    { 
+      cout << "B's Constructor Called " << 
+               endl; 
+    }
+};
+ 
+// Driver code
 int main()
 {
-    // Object of class first
-    box first;
- 
-    // Set the dimensions
-    first.set_dimension(12, 14, 16);
- 
-    // Display the dimensions
-    first.show_data();
- 
-    // When the data will be copied then
-    // all the resources will also get
-    // allocated to the new object
-    box second = first;
- 
-    // Display the dimensions
-    second.show_data();
- 
+    B b;
     return 0;
 }
