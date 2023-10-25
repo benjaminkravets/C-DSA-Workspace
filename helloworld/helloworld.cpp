@@ -2,41 +2,26 @@
 #include<string.h>
 using namespace std;
 
-class Box  
-{  
-    private:  
-    static int length; 
-    static int breadth;  
-    static int height;  
-     
-    public:
-     
-    static void print()  
-    {  
-        cout << "The value of the length is: " << length << endl;  
-        cout << "The value of the breadth is: " << breadth << endl;  
-        cout << "The value of the height is: " << height << endl;  
-    }
-};  
- 
-// initialize the static data members  
- 
-int Box :: length = 10;  
-int Box :: breadth = 20;  
-int Box :: height = 30;  
- 
-// Driver Code
-   
-int main()  
-{
-     
-    Box b;  
-     
-    cout << "Static member function is called through Object name: \n" << endl;  
-    b.print();  
-     
-    cout << "\nStatic member function is called through Class name: \n" << endl;  
-    Box::print();  
-     
-    return 0;  
-}
+class Test 
+{ 
+private: 
+  int x; 
+  int y; 
+public: 
+  Test(int x = 0, int y = 0) { this->x = x; this->y = y; } 
+  Test &setX(int a) { x = a; return *this; } 
+  Test &setY(int b) { y = b; return *this; } 
+  void print() { cout << "x = " << x << " y = " << y << endl; } 
+}; 
+  
+int main() 
+{ 
+  Test obj1(5, 5); 
+  
+  // Chained function calls.  All calls modify the same object 
+  // as the same object is returned by reference 
+  obj1.setX(10).setY(20); 
+  
+  obj1.print(); 
+  return 0; 
+} 

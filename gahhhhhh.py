@@ -1,3 +1,6 @@
 import math
+import numpy as np
 
-print(math.log(1.01/1))
+garr = np.array([.995, 1.003, .98, 1.024])
+
+print(np.cumproduct(garr))
