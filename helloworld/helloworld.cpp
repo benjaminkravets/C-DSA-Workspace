@@ -1,27 +1,26 @@
 #include<iostream>
 #include<string.h>
-using namespace std;
+using namespace std; 
 
-class Test 
-{ 
-private: 
-  int x; 
-  int y; 
+
+class Test { 
+    static int a; 
+  
 public: 
-  Test(int x = 0, int y = 0) { this->x = x; this->y = y; } 
-  Test &setX(int a) { x = a; return *this; } 
-  Test &setY(int b) { y = b; return *this; } 
-  void print() { cout << "x = " << x << " y = " << y << endl; } 
+    // Local parameter 'a' hides class member 
+    // 'a', but we can access it using :: 
+    void func(int a) { cout << Test::a; } 
 }; 
   
+// In C++, static members must be explicitly defined 
+// like this 
+int Test::a = 1; 
+  
+// Driver code 
 int main() 
 { 
-  Test obj1(5, 5); 
-  
-  // Chained function calls.  All calls modify the same object 
-  // as the same object is returned by reference 
-  obj1.setX(10).setY(20); 
-  
-  obj1.print(); 
-  return 0; 
-} 
+    Test obj; 
+    int k = 3; 
+    obj.func(k); 
+    return 0; 
+}
