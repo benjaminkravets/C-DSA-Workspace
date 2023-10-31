@@ -2,25 +2,38 @@
 #include<string.h>
 using namespace std; 
 
-
-class Test { 
-    static int a; 
+int x; 
   
-public: 
-    // Local parameter 'a' hides class member 
-    // 'a', but we can access it using :: 
-    void func(int a) { cout << Test::a; } 
-}; 
+void fun() 
+{ 
   
-// In C++, static members must be explicitly defined 
-// like this 
-int Test::a = 1; 
+    // First Local class 
+    class Test1 { 
+    public: 
+        Test1() { cout << "Test1::Test1()" << endl; } 
+    }; 
   
-// Driver code 
+    // Second Local class 
+    class Test2 { 
+        // Fine: A local class can use other local classes 
+        // of same function 
+        Test1 t1; 
+  
+    public: 
+        void method() 
+        { 
+            // Fine: Local class member methods can access 
+            // global variables. 
+            cout << "x = " << x << endl; 
+        } 
+    }; 
+  
+    Test2 t; 
+    t.method(); 
+} 
+  
 int main() 
 { 
-    Test obj; 
-    int k = 3; 
-    obj.func(k); 
+    fun(); 
     return 0; 
 }

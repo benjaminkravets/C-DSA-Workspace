@@ -1,14 +1,16 @@
-import datetime
-from datetime import datetime
+import pyautogui as pag
+import ctypes
 
-def get_linux_timestamp(date_string):
-    date_object = datetime.strptime(date_string, "%m/%d/%Y")
-    linux_timestamp = datetime.timestamp(date_object)
-    return linux_timestamp
+print(pag.size())
 
-# Example usage:
 
-date_string = "10/12/2023"
-linux_timestamp = get_linux_timestamp(date_string)
 
-print(linux_timestamp)
+submit_button = None
+while submit_button is None:
+    submit_button = pag.locateOnScreen(image="target.png", confidence=.7)
+
+print(submit_button)
+
+
+pag.moveTo(submit_button, duration=1)
+#pag.click()
