@@ -1,39 +1,32 @@
-#include<iostream>
-#include<string.h>
-using namespace std; 
+#include <iostream>
+#include <string.h>
+using namespace std;
 
-int x; 
-  
-void fun() 
-{ 
-  
-    // First Local class 
-    class Test1 { 
-    public: 
-        Test1() { cout << "Test1::Test1()" << endl; } 
-    }; 
-  
-    // Second Local class 
-    class Test2 { 
-        // Fine: A local class can use other local classes 
-        // of same function 
-        Test1 t1; 
-  
-    public: 
-        void method() 
-        { 
-            // Fine: Local class member methods can access 
-            // global variables. 
-            cout << "x = " << x << endl; 
-        } 
-    }; 
-  
-    Test2 t; 
-    t.method(); 
-} 
-  
-int main() 
-{ 
-    fun(); 
-    return 0; 
+using namespace std;
+
+enum rainbow
+{
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+} colors;
+
+enum class eyecolor : char
+{
+    blue,
+    green,
+    brown
+} eye;
+
+int main()
+{
+
+    cout << "size of enum rainbow variable: " << sizeof(colors) << endl;
+    cout << "size of enum class eyecolor variable:" << sizeof(eye) << endl;
+
+    return 0;
 }
