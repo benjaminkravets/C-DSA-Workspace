@@ -1,32 +1,27 @@
 #include <iostream>
 #include <string.h>
 using namespace std;
-
-using namespace std;
-
-enum rainbow
-{
-    violet,
-    indigo,
-    blue,
-    green,
-    yellow,
-    orange,
-    red
-} colors;
-
-enum class eyecolor : char
-{
-    blue,
-    green,
-    brown
-} eye;
-
+ 
+struct Base {
+public:
+    int x;
+};
+ 
+// is equivalent to
+// struct Derived : public Base {}
+struct Derived : Base {
+public:
+    int y;
+};
+ 
 int main()
 {
-
-    cout << "size of enum rainbow variable: " << sizeof(colors) << endl;
-    cout << "size of enum class eyecolor variable:" << sizeof(eye) << endl;
-
+    Derived d;
+ 
+    // Works fine because inheritance
+    // is public.
+    d.x = 20;
+    cout << d.x;
+    cin.get();
     return 0;
 }
