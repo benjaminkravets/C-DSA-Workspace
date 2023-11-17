@@ -3,17 +3,30 @@ import ctypes
 import pyperclip
 import numbers
 import decimal
-
-#curlay = pyperclip.paste()
-
-def is_number(curlay):
-    try:
-        tmp = float(curlay)
-        print('The variable a number')
-    except:
-        print('The variable is not a number')
+import time
+import numpy as np
 
 
-is_number(' ')
-is_number(1)
-is_number(1.2)
+i = 8
+x, y = i // 10, i % 10
+print(x,y)
+
+random_array = np.array([[[1,0],[1,0]], [[1,0],[1,0]], [[1,0],[1,0]], [[1,0],[1,0]]])
+
+print(random_array.shape)
+
+random_array = np.array([[[1, 0], [1, 0]]] * 4)
+
+print(random_array.shape)
+
+
+
+
+""" 
+print("   _______________ __________     __ __ ________ ")
+print("  / ____/  _/ ___// ____/ __ \   / //_//  _/ __ \\")
+print(" / /    / / \__ \/ /   / / / /  / ,<   / // / / /")
+print("/ /____/ / ___/ / /___/ /_/ /  / /| |_/ // /_/ / ")
+print("\____/___//____/\____/\____/  /_/ |_/___/_____/  ")
+
+ """
