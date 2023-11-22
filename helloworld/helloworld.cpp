@@ -2,26 +2,30 @@
 #include <string.h>
 using namespace std;
  
-struct Base {
-public:
-    int x;
-};
+// declaring class
+class Circle {
+    // access modifier
+private:
+    // Data Member
+    float area;
+    float radius;
  
-// is equivalent to
-// struct Derived : public Base {}
-struct Derived : Base {
 public:
-    int y;
+    void getRadius()
+    {
+        cout << "Enter radius\n";
+        cin >> radius;
+    }
+    void findArea()
+    {
+        area = 3.14 * radius * radius;
+        cout << "Area of circle=" << area;
+    }
 };
- 
 int main()
 {
-    Derived d;
- 
-    // Works fine because inheritance
-    // is public.
-    d.x = 20;
-    cout << d.x;
-    cin.get();
-    return 0;
+    // creating instance(object) of class
+    Circle cir;
+    cir.getRadius(); // calling function
+    cir.findArea(); // calling function
 }
