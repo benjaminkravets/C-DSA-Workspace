@@ -2,30 +2,32 @@
 #include <string.h>
 using namespace std;
  
-// declaring class
-class Circle {
-    // access modifier
+class EncapsulationExample {
 private:
-    // Data Member
-    float area;
-    float radius;
+    // we declare a as private to hide it from outside
+    int a; 
  
 public:
-    void getRadius()
+    // set() function to set the value of  a
+    void set(int x) 
     {
-        cout << "Enter radius\n";
-        cin >> radius;
+        a = x;
     }
-    void findArea()
+ 
+    // get() function to return the value of a
+    int get() 
     {
-        area = 3.14 * radius * radius;
-        cout << "Area of circle=" << area;
+        return a;
     }
 };
-int main()
+ 
+// main function
+int main() 
 {
-    // creating instance(object) of class
-    Circle cir;
-    cir.getRadius(); // calling function
-    cir.findArea(); // calling function
+    EncapsulationExample e1;
+ 
+    e1.set(10);
+ 
+    cout<<e1.get();
+    return 0;
 }
