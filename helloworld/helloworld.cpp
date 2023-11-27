@@ -2,32 +2,41 @@
 #include <string.h>
 using namespace std;
  
-class EncapsulationExample {
+class Complex {
 private:
-    // we declare a as private to hide it from outside
-    int a; 
+    int real, imag;
  
 public:
-    // set() function to set the value of  a
-    void set(int x) 
+    Complex(int r = 0, int i = 0)
     {
-        a = x;
+        real = r;
+        imag = i;
     }
  
-    // get() function to return the value of a
-    int get() 
+    // This is automatically called
+    // when '+' is used with between
+    // two Complex objects
+    Complex operator-(Complex const obj)
     {
-        return a;
+        cout << "called" << endl;
     }
+    Complex operator+(Complex const& obj)
+    {
+        Complex res;
+        res.real = real + obj.real;
+        res.imag = imag + obj.imag;
+        return res;
+    }
+    void print() { cout << real << " + i" << imag << endl; }
 };
  
-// main function
-int main() 
+// Driver code
+int main()
 {
-    EncapsulationExample e1;
+    Complex c1(10, 5), c2(2, 4);
  
-    e1.set(10);
- 
-    cout<<e1.get();
-    return 0;
+    // An example call to "operator+"
+    Complex c3 = c1 + c2;
+    Complex c4 = c2 - c1;
+    c3.print();
 }
