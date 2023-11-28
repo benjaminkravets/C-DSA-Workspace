@@ -1,42 +1,23 @@
 #include <iostream>
 #include <string.h>
 using namespace std;
+
+int main () {
+   // declare simple variables
+   int    i;
+   double d;
  
-class Complex {
-private:
-    int real, imag;
+   // declare reference variables
+   int&    r = i;
+   double& s = d;
+   
+   i = 5;
+   cout << "Value of i : " << i << endl;
+   cout << "Value of i reference : " << r  << endl;
  
-public:
-    Complex(int r = 0, int i = 0)
-    {
-        real = r;
-        imag = i;
-    }
- 
-    // This is automatically called
-    // when '+' is used with between
-    // two Complex objects
-    Complex operator-(Complex const obj)
-    {
-        cout << "called" << endl;
-    }
-    Complex operator+(Complex const& obj)
-    {
-        Complex res;
-        res.real = real + obj.real;
-        res.imag = imag + obj.imag;
-        return res;
-    }
-    void print() { cout << real << " + i" << imag << endl; }
-};
- 
-// Driver code
-int main()
-{
-    Complex c1(10, 5), c2(2, 4);
- 
-    // An example call to "operator+"
-    Complex c3 = c1 + c2;
-    Complex c4 = c2 - c1;
-    c3.print();
+   d = 11.7;
+   cout << "Value of d : " << d << endl;
+   cout << "Value of d reference : " << s  << endl;
+   
+   return 0;
 }
