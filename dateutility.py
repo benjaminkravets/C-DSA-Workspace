@@ -7,17 +7,17 @@ import time
 import numpy as np
 
 
-i = 8
-x, y = i // 10, i % 10
-print(x,y)
+def calculate_stats(x):
+    mean = np.mean(x)
+    median = np.median(x)
+    std_dev = np.std(x)
+    return mean, median, std_dev
 
-random_array = np.array([[[1,0],[1,0]], [[1,0],[1,0]], [[1,0],[1,0]], [[1,0],[1,0]]])
+data = np.random.randn(1000)
+vectorized_calculate_stats = np.vectorize(calculate_stats)
+stats = vectorized_calculate_stats(data)
 
-print(random_array.shape)
-
-random_array = np.array([[[1, 0], [1, 0]]] * 4)
-
-print(random_array.shape)
+print(stats)
 
 
 
