@@ -6,19 +6,33 @@ import decimal
 import time
 import numpy as np
 
+class Node:
+   def __init__(self, dataval=None):
+      self.dataval = dataval
+      self.nextval = None
 
-def calculate_stats(x):
-    mean = np.mean(x)
-    median = np.median(x)
-    std_dev = np.std(x)
-    return mean, median, std_dev
+class SLinkedList:
+   def __init__(self):
+      self.headval = None
 
-data = np.random.randn(1000)
-vectorized_calculate_stats = np.vectorize(calculate_stats)
-stats = vectorized_calculate_stats(data)
+   def listprint(self):
+      printval = self.headval
+      while printval is not None:
+         print (printval.dataval)
+         printval = printval.nextval
 
-print(stats)
+list = SLinkedList()
+list.headval = Node("Mon")
+e2 = Node("Tue")
+e3 = Node("Wed")
 
+# Link first Node to second node
+list.headval.nextval = e2
+
+# Link second Node to third node
+e2.nextval = e3
+
+list.listprint()
 
 
 
