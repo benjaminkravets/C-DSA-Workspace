@@ -7,35 +7,22 @@ import time
 import numpy as np
 
 class Node:
-   def __init__(self, dataval=None):
-      self.dataval = dataval
-      self.nextval = None
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+   
+        
+if __name__ == "__main__":
 
-class SLinkedList:
-   def __init__(self):
-      self.headval = None
+    a = Node(1)
+    b = Node(3)
+    c = Node(5)
+    a.next, b.next = b, c
 
-   def listprint(self):
-      printval = self.headval
-      while printval is not None:
-         print (printval.dataval)
-         printval = printval.nextval
+    for i in [a,b,c]:
+        print(i.data)
 
-list = SLinkedList()
-list.headval = Node("Mon")
-e2 = Node("Tue")
-e3 = Node("Wed")
-
-# Link first Node to second node
-list.headval.nextval = e2
-
-# Link second Node to third node
-e2.nextval = e3
-
-list.listprint()
-
-
-
+    
 """ 
 print("   _______________ __________     __ __ ________ ")
 print("  / ____/  _/ ___// ____/ __ \   / //_//  _/ __ \\")
