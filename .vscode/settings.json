@@ -54,6 +54,7 @@
         "xtr1common": "cpp",
         "xutility": "cpp",
         "vector": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "algorithm": "cpp"
     }
 }
