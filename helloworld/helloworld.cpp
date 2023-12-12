@@ -1,32 +1,29 @@
-// Linked list implementation in C++
+
 
 #include <algorithm>
 #include <iostream>
 using namespace std;
 
-// Base class 
-class Parent { 
+// base class 
+class Vehicle { 
 public: 
-    int id_p; 
+    Vehicle() { cout << "This is a Vehicle\n"; } 
 }; 
   
-// Sub class inheriting from Base Class(Parent) 
-class Child : public Parent { 
-public: 
-    int id_c; 
+// first sub class 
+class Car : public Vehicle { 
+}; 
+  
+// second sub class 
+class Bus : public Vehicle { 
 }; 
   
 // main function 
 int main() 
 { 
-    Child obj1; 
-  
-    // An object of class child has all data members 
-    // and member functions of class parent 
-    obj1.id_c = 7; 
-    obj1.id_p = 91; 
-    cout << "Child id is: " << obj1.id_c << '\n'; 
-    cout << "Parent id is: " << obj1.id_p << '\n'; 
-  
+    // Creating object of sub class will 
+    // invoke the constructor of base class. 
+    Car obj1; 
+    Bus obj2; 
     return 0; 
 }
