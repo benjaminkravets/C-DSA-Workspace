@@ -4,26 +4,44 @@
 #include <iostream>
 using namespace std;
 
-// base class 
-class Vehicle { 
-public: 
-    Vehicle() { cout << "This is a Vehicle\n"; } 
+class ClassA 
+{ 
+  public: 
+    int a; 
 }; 
   
-// first sub class 
-class Car : public Vehicle { 
+class ClassB : virtual public ClassA 
+{ 
+  public: 
+    int b; 
 }; 
   
-// second sub class 
-class Bus : public Vehicle { 
+class ClassC : virtual public ClassA 
+{ 
+  public: 
+    int c; 
 }; 
   
-// main function 
+class ClassD : public ClassB, public ClassC 
+{ 
+  public: 
+    int d; 
+}; 
+  
 int main() 
 { 
-    // Creating object of sub class will 
-    // invoke the constructor of base class. 
-    Car obj1; 
-    Bus obj2; 
-    return 0; 
+    ClassD obj; 
+  
+    obj.a = 10;       // Statement 3 
+    obj.a = 100;      // Statement 4 
+    obj.ClassC::a = 1;
+  
+    obj.b = 20; 
+    obj.c = 30; 
+    obj.d = 40; 
+  
+    cout << "\n a : " << obj.a; 
+    cout << "\n b : " << obj.b; 
+    cout << "\n c : " << obj.c; 
+    cout << "\n d : " << obj.d << '\n'; 
 }
