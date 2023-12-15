@@ -4,44 +4,34 @@
 #include <iostream>
 using namespace std;
 
-class ClassA 
-{ 
-  public: 
-    int a; 
-}; 
-  
-class ClassB : virtual public ClassA 
-{ 
-  public: 
-    int b; 
-}; 
-  
-class ClassC : virtual public ClassA 
-{ 
-  public: 
-    int c; 
-}; 
-  
-class ClassD : public ClassB, public ClassC 
-{ 
-  public: 
-    int d; 
-}; 
-  
-int main() 
-{ 
-    ClassD obj; 
-  
-    obj.a = 10;       // Statement 3 
-    obj.a = 100;      // Statement 4 
-    obj.ClassC::a = 1;
-  
-    obj.b = 20; 
-    obj.c = 30; 
-    obj.d = 40; 
-  
-    cout << "\n a : " << obj.a; 
-    cout << "\n b : " << obj.b; 
-    cout << "\n c : " << obj.c; 
-    cout << "\n d : " << obj.d << '\n'; 
+class A
+{
+   int x;
+
+public:
+   void setX(int i) { x = i; }
+   void print() { cout << x; }
+};
+
+class B : public A
+{
+public:
+   B() { setX(10); }
+};
+
+class C : public A
+{
+public:
+   C() { setX(20); }
+};
+
+class D : public B, public C
+{
+};
+
+int main()
+{
+   D d;
+   d.print();
+   return 0;
 }
