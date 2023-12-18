@@ -4,34 +4,45 @@
 #include <iostream>
 using namespace std;
 
-class A
+class A1
 {
-   int x;
-
-public:
-   void setX(int i) { x = i; }
-   void print() { cout << x; }
+    public:
+        A1()
+        {
+            int a = 20, b = 35, c;
+            c = a + b;
+            cout << "Sum is:" << 
+                     c << endl;
+        }
 };
-
-class B : public A
+ 
+class A2
 {
-public:
-   B() { setX(10); }
+    public:
+        A2()
+        {
+            int x = 50, y = 42, z;
+            z = x - y;
+            cout << "Difference is:" << 
+                     z << endl;
+        }
 };
-
-class C : public A
+ 
+class S: public A1,virtual A2
 {
-public:
-   C() { setX(20); }
+    public:
+        S(): A1(), A2()
+        {
+            int r = 40, s = 8, t;
+            t = r * s;
+            cout << "Product is:" << 
+                     t << endl;
+        }
 };
-
-class D : public B, public C
-{
-};
-
+ 
+// Driver code
 int main()
 {
-   D d;
-   d.print();
-   return 0;
+    S obj;
+    return 0;
 }
