@@ -4,45 +4,46 @@
 #include <iostream>
 using namespace std;
 
-class A1
-{
-    public:
-        A1()
-        {
-            int a = 20, b = 35, c;
-            c = a + b;
-            cout << "Sum is:" << 
-                     c << endl;
-        }
+class base; // forward definition needed
+// another class in which function is declared
+class anotherClass {
+public:
+    void memberFunction(base& obj);
 };
  
-class A2
-{
-    public:
-        A2()
-        {
-            int x = 50, y = 42, z;
-            z = x - y;
-            cout << "Difference is:" << 
-                     z << endl;
-        }
+// base class for which friend is declared
+class base {
+private:
+    int private_variable;
+ 
+protected:
+    int protected_variable;
+ 
+public:
+    base()
+    {
+        private_variable = 10;
+        protected_variable = 99;
+    }
+ 
+    // friend function declaration
+    friend void anotherClass::memberFunction(base&);
 };
  
-class S: public A1,virtual A2
+// friend function definition
+void anotherClass::memberFunction(base& obj)
 {
-    public:
-        S(): A1(), A2()
-        {
-            int r = 40, s = 8, t;
-            t = r * s;
-            cout << "Product is:" << 
-                     t << endl;
-        }
-};
+    cout << "Private Variable: " << obj.private_variable
+         << endl;
+    cout << "Protected Variable: " << obj.protected_variable;
+}
  
-// Driver code
+// driver code
 int main()
 {
-    S obj;
+    base object1;
+    anotherClass object2;
+    object2.memberFunction(object1);
+ 
     return 0;
 }
