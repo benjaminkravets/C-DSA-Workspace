@@ -4,46 +4,29 @@
 #include <iostream>
 using namespace std;
 
-class base; // forward definition needed
-// another class in which function is declared
-class anotherClass {
-public:
-    void memberFunction(base& obj);
-};
- 
-// base class for which friend is declared
-class base {
-private:
-    int private_variable;
- 
-protected:
-    int protected_variable;
- 
-public:
-    base()
-    {
-        private_variable = 10;
-        protected_variable = 99;
-    }
- 
-    // friend function declaration
-    friend void anotherClass::memberFunction(base&);
-};
- 
-// friend function definition
-void anotherClass::memberFunction(base& obj)
+class Base
 {
-    cout << "Private Variable: " << obj.private_variable
-         << endl;
-    cout << "Protected Variable: " << obj.protected_variable;
-}
- 
-// driver code
+public:
+    int f(int i)
+    {
+        cout << "f(int): ";
+        return i+3;
+    }
+};
+class Derived : public Base
+{
+public:
+    double f(double d)
+    {
+        cout << "f(double): ";
+        return d+3.3;
+    }
+};
 int main()
 {
-    base object1;
-    anotherClass object2;
-    object2.memberFunction(object1);
- 
+    Derived* dp = new Derived;
+    cout << dp->f(3) << '\n';
+    cout << dp->f(3.3) << '\n';
+    delete dp;
     return 0;
 }

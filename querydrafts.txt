@@ -1,0 +1,9 @@
+atbroker.exe 
+| stats values(ComputerName) as hosts
+| append 
+    [| search bash.exe
+     | stats values(ComputerName) as hosts]
+| append 
+    [| search Csc.exe
+     | stats values(ComputerName) as hosts]
+| stats count by hosts
