@@ -13,7 +13,14 @@ Lines = file1.readlines()
  
 count = 0
 # Strips the newline character
-for line in Lines:
-    print("| append")
-    print("    [| search",line, end='')
-    print("     | stats values(ComputerName) as hosts]")
+for i, line in enumerate(Lines):
+
+    if i == 0:
+        print(line, end='')
+        print("     | stats values(ComputerName) as hosts")
+    else:
+        print("| append")
+        print("    [| search",line, end='')
+        print("     | stats values(ComputerName) as hosts]")
+
+print("| stats count by hosts")
