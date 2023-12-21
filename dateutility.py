@@ -8,7 +8,7 @@ import numpy as np
 
  
 # Using readlines()
-file1 = open('badguy.txt', 'r')
+file1 = open('curated.txt', 'r')
 Lines = file1.readlines()
  
 count = 0
