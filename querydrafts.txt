@@ -6,6 +6,9 @@ bash.exe
 | append 
     [| search Csc.exe
      | stats values(ComputerName) as hosts]
+| append
+    [| search Aspnet_Compiler.exe
+     | stats values(ComputerName) as hosts]
 | stats count by hosts
 
 

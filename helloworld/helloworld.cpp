@@ -4,45 +4,39 @@
 #include <iostream>
 using namespace std;
 
-class base {
+// Initialization of base class
+class Base {
 public:
-    void fun_1() { cout << "base-1\n"; }
-    virtual void fun_2() { cout << "base-2\n"; }
-    virtual void fun_3() { cout << "base-3\n"; }
-    virtual void fun_4() { cout << "base-4\n"; }
+    // Initialization of virtual function
+    virtual void fun(int x = 0)
+    {
+        cout << "Base::fun(), x = " << x << endl;
+    }
 };
  
-class derived : public base {
+// Initialization of Derived class
+class Derived : public Base {
 public:
-    void fun_1() { cout << "derived-1\n"; }
-    void fun_2() { cout << "derived-2\n"; }
-    void fun_4() { cout << "derived-4\n"; }
+    // NOTE this virtual function will take an argument
+    // But haven't initialized yet
+    virtual void fun(int x)
+    {
+        cout << "Derived::fun(), x = " << x << endl;
+    }
 };
  
+// Driver Code
 int main()
 {
-    base* p;
-    derived obj1;
-    p = &obj1;
+    Derived d1; // Constructor
  
-    // Early binding because fun1() is non-virtual
-    // in base
-    p->fun_1();
- 
-    // Late binding (RTP)
-    p->fun_2();
- 
-    // Late binding (RTP)
-    p->fun_3();
- 
-    // Late binding (RTP)
-    p->fun_4();
- 
-    // Early binding but this function call is
-    // illegal (produces error) because pointer
-    // is of base type and function is of
-    // derived class
-    // p->fun_4(5);
- 
-    return 0;
+    // Base class pointer which will
+    // Edit value in memory location of
+    // Derived class constructor
+    Base* bp = &d1;
+   
+    bp->fun(); // Calling a derived class member function
+   
+    return 0; // Returning 0 means the program
+              // Executed successfully
 }

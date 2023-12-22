@@ -1,4 +1,3 @@
-python.exe
 bash.exe
 certutil.exe
 ssh.exe
@@ -18,6 +17,14 @@ findstr.exe
 procdump.exe
 wsl.exe
 python.exe
+python3.exe
 rcsi.exe
 cl.exe
 taskmgr.exe
+netsh.exe
+ftp.exe
+sftp.exe
+ping.exe
+ipconfig.exe
+.ps1
+.bat
