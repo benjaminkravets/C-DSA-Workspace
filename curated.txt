@@ -12,13 +12,11 @@ nltest.exe
 code.exe
 psexec.exe
 wscript.exe
-shell32.dll
 findstr.exe
 procdump.exe
 wsl.exe
 python.exe
 python3.exe
-rcsi.exe
 cl.exe
 taskmgr.exe
 netsh.exe
