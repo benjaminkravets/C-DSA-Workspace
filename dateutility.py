@@ -24,3 +24,4 @@ for i, line in enumerate(Lines):
         print("     | stats values(ComputerName) as hosts]")
 
 print("| stats count by hosts")
+print("| sort - count")
