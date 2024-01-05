@@ -1,4 +1,4 @@
-import pyautogui as pag
+
 import ctypes
 import pyperclip
 import numbers
