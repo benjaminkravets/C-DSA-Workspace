@@ -2,41 +2,59 @@
 
 #include <algorithm>
 #include <iostream>
+#include <fstream>
+#include <string>
 using namespace std;
 
-class demo {
-    int num;
- 
-public:
-    demo(int x)
-    {
-        try {
- 
-            if (x == 0)
-                // catch block would be called
-                throw "Zero not allowed ";
- 
-            num = x;
-            show();
+void file_write(){
+
+    //fstream object can be used for input and output with file
+    fstream fio;
+
+    string user_input;
+
+    fio.open("input.txt", ios::trunc | ios::out | ios::in);
+
+    while (fio){
+
+        getline(cin, user_input);
+
+        if (user_input == "-1"){
+            break;
         }
- 
-        catch (const char* exp) {
-            cout << "Exception caught \n ";
-            cout << exp << endl;
-        }
+
+        fio << user_input << endl;
+
     }
- 
-    void show()
-    {
-        cout << "Num = " << num << endl;
+
+    fio.close();
+
+}
+
+void file_read(){
+    fstream fio;
+
+    string output;
+
+    fio.open("input.txt", ios::out | ios::in);
+
+    while (fio){
+
+        getline(fio, output);
+        cout << output << endl;
     }
-};
- 
+
+    fio.close();
+}
+
+
+
 int main()
 {
+
+    //file_write();
+    file_read();
+
  
-    // constructor will be called
-    demo(0);
-    cout << "Again creating object \n";
-    demo(1);
+    return 0;
 }
