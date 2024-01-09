@@ -4,57 +4,45 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 using namespace std;
 
-void file_write(){
-
-    //fstream object can be used for input and output with file
-    fstream fio;
-
-    string user_input;
-
-    fio.open("input.txt", ios::trunc | ios::out | ios::in);
-
-    while (fio){
-
-        getline(cin, user_input);
-
-        if (user_input == "-1"){
-            break;
-        }
-
-        fio << user_input << endl;
-
+ 
+ 
+// defining class template
+template <typename t>
+class student {
+private:
+    string student_name;
+    t total_marks;
+ 
+public:
+    student();
+    // parameterized constructor
+    student(string n, t m)
+    {
+        student_name = n;
+        total_marks = m;
     }
-
-    fio.close();
-
-}
-
-void file_read(){
-    fstream fio;
-
-    string output;
-
-    fio.open("input.txt", ios::out | ios::in);
-
-    while (fio){
-
-        getline(fio, output);
-        cout << output << endl;
+ 
+    void getinfo()
+    {
+        cout << "STUDENT NAME: " << student_name << endl;
+        cout << "TOTAL MARKS: " << total_marks << endl;
+        cout << "Type ID: " << typeid(total_marks).name()
+             << endl;
     }
-
-    fio.close();
-}
-
-
-
+};
+ 
 int main()
 {
-
-    //file_write();
-    file_read();
-
+    // student <int> is used to fulfill
+      // template requirements
+    student<int> s1("vipul", 100);
+    student<float> s2("yash", 100.0);
+ 
+    s1.getinfo();
+    s2.getinfo();
  
     return 0;
 }
