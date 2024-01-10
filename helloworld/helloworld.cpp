@@ -7,42 +7,34 @@
 #include <vector>
 using namespace std;
 
- 
- 
-// defining class template
-template <typename t>
-class student {
-private:
-    string student_name;
-    t total_marks;
- 
+template <class T>
+class Test
+{
+  // Data members of test
 public:
-    student();
-    // parameterized constructor
-    student(string n, t m)
-    {
-        student_name = n;
-        total_marks = m;
-    }
+   Test()
+   {
+       // Initialization of data members
+       cout << "General template object \n";
+   }
+   // Other methods of Test
+};
  
-    void getinfo()
-    {
-        cout << "STUDENT NAME: " << student_name << endl;
-        cout << "TOTAL MARKS: " << total_marks << endl;
-        cout << "Type ID: " << typeid(total_marks).name()
-             << endl;
-    }
+template <>
+class Test <int>
+{
+public:
+   Test()
+   {
+       // Initialization of data members
+       cout << "Specialized template object\n";
+   }
 };
  
 int main()
 {
-    // student <int> is used to fulfill
-      // template requirements
-    student<int> s1("vipul", 100);
-    student<float> s2("yash", 100.0);
- 
-    s1.getinfo();
-    s2.getinfo();
- 
+    Test<int> a;
+    Test<char> b;
+    Test<float> c;
     return 0;
 }
