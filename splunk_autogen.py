@@ -10,7 +10,7 @@ import numpy as np
 # Using readlines()
 file1 = open('suspect_lol_utilities.txt', 'r')
 Lines = file1.readlines()
- 
+
 count = 0
 # Strips the newline character
 for i, line in enumerate(Lines):
