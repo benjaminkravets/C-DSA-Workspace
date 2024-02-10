@@ -20,5 +20,8 @@ int main()
     struct_bitfield.bits_threefour = 1;
     
    
-        
+    bitset<8> my_bitset_decimal(19);
+    bitset<8> my_bitset_string(string("1010"));
+
+    cout << my_bitset_decimal << " " << my_bitset_string;
 }
