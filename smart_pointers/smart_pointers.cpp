@@ -28,7 +28,7 @@ int main()
     P2 = move(P1);
  
     // This'll print 50
-    cout << P2->area() << endl;
+    //cout << P2->area() << endl;
  
     // cout<<P1->area()<<endl;
     return 0;
