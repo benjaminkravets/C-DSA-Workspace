@@ -55,6 +55,7 @@
         "xutility": "cpp",
         "vector": "cpp",
         "regex": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "unordered_set": "cpp"
     }
 }
