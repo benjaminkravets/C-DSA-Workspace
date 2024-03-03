@@ -1,35 +1,30 @@
 #include <iostream>
 using namespace std;
-// Dynamic Memory management library
-#include <memory>
  
-class Rectangle {
-    int length;
-    int breadth;
- 
+// A generic smart pointer class
+template <class T> class SmartPtr {
+    T* ptr; // Actual pointer
 public:
-    Rectangle(int l, int b)
-    {
-        length = l;
-        breadth = b;
-    }
+    // Constructor
+    explicit SmartPtr(T* p = NULL) { ptr = p; }
  
-    int area() { return length * breadth; }
+    // Destructor
+    ~SmartPtr() { delete (ptr); }
+ 
+    // Overloading dereferencing operator
+    T& operator*() { return *ptr; }
+ 
+    // Overloading arrow operator so that
+    // members of T can be accessed
+    // like a pointer (useful if T represents
+    // a class or struct or union type)
+    T* operator->() { return ptr; }
 };
  
 int main()
 {
-// --\/ Smart Pointer
-    unique_ptr<Rectangle> P1(new Rectangle(10, 5));
-    cout << P1->area() << endl; // This'll print 50
- 
-    // unique_ptr<Rectangle> P2(P1);
-    unique_ptr<Rectangle> P2;
-    P2 = move(P1);
- 
-    // This'll print 50
-    //cout << P2->area() << endl;
- 
-    cout<<P1->area()<<endl;
+    SmartPtr<int> ptr(new int());
+    *ptr = 20;
+    cout << *ptr;
     return 0;
 }

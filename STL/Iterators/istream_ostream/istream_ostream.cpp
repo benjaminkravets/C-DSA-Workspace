@@ -2,7 +2,9 @@
 #include <algorithm>
 #include <iostream>
 #include <iterator>
- 
+#include <getopt.h>
+
+
 using namespace std;
 
 int main()
