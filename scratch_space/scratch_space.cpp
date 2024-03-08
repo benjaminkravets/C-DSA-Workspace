@@ -1,46 +1,44 @@
-#include <iostream> 
-#include <vector> 
+
+#include <tuple> 
+#include <iostream>
+#include <stdio.h>
 using namespace std; 
+  
+// Creating a structure named Point 
+struct Point 
+{ 
+    int x, y; 
+      
+    // Default Constructor 
+    Point() : x(0), y(0)  
+    { 
+
+          
+    } 
+
+
+      
+    // Parameterized Constructor for Init List 
+    Point(int x, int y) : x(x), y(y)  
+    { 
+        cout << x << " " << y << endl;
+    } 
+    auto operator()() 
+    { 
+        // returns a tuple to make it work with std::tie 
+        return make_tuple(x, y);  
+    } 
+}; 
+  
+// Driver code 
 int main() 
 { 
-    // Declaring a vector 
-    vector<int> v = { 1, 2, 3 }; 
-  
-    // Declaring an iterator 
-    vector<int>::iterator i; 
-  
-    int j; 
-  
-    cout << "Without iterators = "; 
-  
-    // Accessing the elements without using iterators 
-    for (j = 0; j < 3; ++j) { 
-        cout << v[j] << " "; 
-    } 
-  
-    cout << "\nWith iterators = "; 
-  
-    // Accessing the elements using iterators 
-    for (i = v.begin(); i != v.end(); ++i) { 
-        cout << *i << " "; 
-    } 
-  
-    // Adding one more element to vector 
-    v.push_back(4); 
-  
-    cout << "\nWithout iterators = "; 
-  
-    // Accessing the elements without using iterators 
-    for (j = 0; j < 4; ++j) { 
-        cout << v[j] << " "; 
-    } 
-  
-    cout << "\nWith iterators = "; 
-  
-    // Accessing the elements using iterators 
-    for (i = v.begin(); i != v.end(); ++i) { 
-        cout << *i << " "; 
-    } 
-  
+    Point p = {1, 2}; 
+    int x_coord, y_coord; 
+    tie(x_coord, y_coord) = p(); 
+      
+    cout << "X Coordinate : " << x_coord << endl; 
+    cout << "Y Coordinate : " << y_coord << endl; 
+      
     return 0; 
 } 
