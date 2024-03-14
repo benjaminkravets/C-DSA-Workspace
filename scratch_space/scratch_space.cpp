@@ -1,44 +1,28 @@
 
-#include <tuple> 
+
 #include <iostream>
-#include <stdio.h>
-using namespace std; 
-  
-// Creating a structure named Point 
-struct Point 
-{ 
-    int x, y; 
-      
-    // Default Constructor 
-    Point() : x(0), y(0)  
-    { 
-
-          
-    } 
-
-
-      
-    // Parameterized Constructor for Init List 
-    Point(int x, int y) : x(x), y(y)  
-    { 
-        cout << x << " " << y << endl;
-    } 
-    auto operator()() 
-    { 
-        // returns a tuple to make it work with std::tie 
-        return make_tuple(x, y);  
-    } 
-}; 
-  
-// Driver code 
-int main() 
-{ 
-    Point p = {1, 2}; 
-    int x_coord, y_coord; 
-    tie(x_coord, y_coord) = p(); 
-      
-    cout << "X Coordinate : " << x_coord << endl; 
-    cout << "Y Coordinate : " << y_coord << endl; 
-      
-    return 0; 
-} 
+using namespace std;
+// first name space
+namespace first_space
+{
+  void func()
+  {
+     cout << "Inside first_space" << endl;
+  }
+}
+ 
+// second name space
+namespace second_space
+{
+  void func()
+  {
+     cout << "Inside second_space" << endl;
+  }
+}
+using namespace first_space;
+int main ()
+{
+   // This calls function from first name space.
+  func();
+  return 0;
+}
