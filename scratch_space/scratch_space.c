@@ -1,10 +1,17 @@
 #include <stdio.h>
 
 
-int min(int a, int b){
-    return (a < b) ? a : b;
-}
 int main(){
-    int c = min(54, 6);
-    printf("%i \r\n", c);
+
+    __uint16_t i = 1;
+
+    i = i << 9;
+
+
+    printf("%i \r\n", i);
+
+    __uint16_t address = 3<<9 | 0;
+
+    printf("%i \r\n", address);
+
 }
