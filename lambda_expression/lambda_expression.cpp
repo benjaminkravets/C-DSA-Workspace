@@ -1,9 +1,11 @@
-//derived from https://www.scaler.com/topics/cpp/lambda-function-cpp/
+//from https://www.scaler.com/topics/cpp/lambda-function-cpp/
 #include <iostream>
 #include <list>
 #include <vector>
 #include <algorithm>
 #include <vector>
+#include <math.h>
+
 using std::cout;
 using std::endl;
 using std::vector;
