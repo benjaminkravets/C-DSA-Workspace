@@ -1,28 +1,21 @@
-
-
 #include <iostream>
 using namespace std;
-// first name space
-namespace first_space
+
+int add(int k, int l)
 {
-  void func()
-  {
-     cout << "Inside first_space" << endl;
-  }
+  return (k + l);
 }
- 
-// second name space
-namespace second_space
+
+int invoke(int x, int y, int (*func)(int, int))
 {
-  void func()
-  {
-     cout << "Inside second_space" << endl;
-  }
+  return (func(x,y));
 }
-using namespace first_space;
-int main ()
+
+int main()
 {
-   // This calls function from first name space.
-  func();
-  return 0;
+  int a = 1, b = 2;
+
+  int c = invoke(a, b, &add);
+
+  cout << c << endl;
 }

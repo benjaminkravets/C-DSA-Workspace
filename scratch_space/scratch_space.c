@@ -1,17 +1,26 @@
-#include <stdio.h>
 
 
-int main(){
-
-    __uint16_t i = 1;
-
-    i = i << 9;
-
-
-    printf("%i \r\n", i);
-
-    __uint16_t address = 3<<9 | 0;
-
-    printf("%i \r\n", address);
-
+class A
+{
+  public:
+    void fun()
+    {
+        delete this;
+    }
+};
+ 
+int main()
+{
+  /* Following is Valid */
+  A *ptr = new A;
+  ptr->fun();
+  ptr = NULL; // make ptr NULL to make sure that things are not accessed using ptr. 
+ 
+ 
+  /* And following is Invalid: Undefined Behavior */
+  A a;
+  a.fun();
+ 
+  getchar();
+  return 0;
 }
