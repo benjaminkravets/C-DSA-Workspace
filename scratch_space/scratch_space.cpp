@@ -1,21 +1,26 @@
-#include <iostream>
-using namespace std;
-
-int add(int k, int l)
-{
-  return (k + l);
-}
-
-int invoke(int x, int y, int (*func)(int, int))
-{
-  return (func(x,y));
-}
-
-int main()
-{
-  int a = 1, b = 2;
-
-  int c = invoke(a, b, &add);
-
-  cout << c << endl;
+#include <csignal> 
+#include <iostream> 
+  
+using namespace std; 
+  
+void signal_handler(int signal_num) 
+{ 
+    cout << "Interrupt signal is (" << signal_num << ").\n"; 
+  
+    // It terminates program 
+    exit(signal_num); 
+} 
+  
+int main() 
+{ 
+    int count = 0; 
+    signal(SIGSEGV, signal_handler); 
+    // register signal SIGSEGV and signal handler 
+  
+    while (++count) { 
+        cout << "Hello GeeksforGeeks..." << endl; 
+        if (count == 5) 
+            raise(SIGALRM); 
+    } 
+    return 0; 
 }
