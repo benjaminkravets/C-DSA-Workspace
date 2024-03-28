@@ -1,26 +1,38 @@
-#include <csignal> 
 #include <iostream> 
-  
 using namespace std; 
   
-void signal_handler(int signal_num) 
-{ 
-    cout << "Interrupt signal is (" << signal_num << ").\n"; 
+template <typename T> 
+class Array { 
+private: 
+    T* ptr; 
+    int size; 
   
-    // It terminates program 
-    exit(signal_num); 
+public: 
+    Array(T arr[], int s); 
+    void print(); 
+}; 
+  
+template <typename T> 
+Array<T>::Array(T arr[], int s) 
+{ 
+    ptr = new T[s]; 
+    size = s; 
+    for (int i = 0; i < size; i++) 
+        ptr[i] = arr[i]; 
+} 
+  
+template <typename T> 
+void Array<T>::print() 
+{ 
+    for (int i = 0; i < size; i++) 
+        cout << " " << *(ptr + i); 
+    cout << endl; 
 } 
   
 int main() 
 { 
-    int count = 0; 
-    signal(SIGSEGV, signal_handler); 
-    // register signal SIGSEGV and signal handler 
-  
-    while (++count) { 
-        cout << "Hello GeeksforGeeks..." << endl; 
-        if (count == 5) 
-            raise(SIGALRM); 
-    } 
+    int arr[5] = { 1, 2, 3, 4, 5 }; 
+    Array<int> a(arr, 5); 
+    a.print(); 
     return 0; 
-}
+} 
