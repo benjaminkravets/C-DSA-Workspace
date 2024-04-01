@@ -1,12 +1,25 @@
 #include <stdio.h>
+ 
+/* function declaration */
+void func(void);
+ 
+static int count = 5; /* global variable */
+ 
+int main() {
 
 
-int main(){
+   while(count--) {
+      func();
+   }
+	
+   return 0;
+}
 
-    int number = 5; // 0101 in binary
-    int bit_position = 1;
+/* function definition */
+void func( void ) {
 
-    number |= (1 << bit_position); // Sets the 2nd bit to 1 (becomes 0111)
+   static int i = 5; /* local static variable */
+   i++;
 
-    printf("C = %i \r\n", number);
+   printf("i is %d and count is %d\n", i, count);
 }
