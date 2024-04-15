@@ -3,7 +3,7 @@
 
 int main()
 {
-/* 
+
 	// char array (not directly modifiable using = but can be with strcpy(), string stored in .text)
 	char name_0[] = "test str 1";
 	printf("%s \n\n", name_0);
@@ -32,7 +32,7 @@ int main()
 	{
 		printf("Element %d holds pointer %p which references value %d \n", i, name_3[i], *name_3[i]);
 	}
-	*/
+	
 
 	// array of char (array) pointers
 	char *name_4[4] = {"a","bc","def","ghij"};
