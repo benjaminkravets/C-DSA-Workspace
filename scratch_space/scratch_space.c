@@ -1,9 +1,18 @@
+#include <assert.h>
 #include <stdio.h>
- 
-
-int main()
-{
-    int arr[5] = {1, 2, 3, 4, 5};
-    printf("%i \n", *(arr + 5));
-    return 0;
+int main () {
+   int a;
+   char str[50];
+	 
+   printf("Enter an integer value: ");
+   scanf("%d", &a);
+   assert(a >= 10);
+   printf("Integer entered is %d\n", a);
+    
+   printf("Enter string: ");
+   scanf("%s", str);
+   assert(str != NULL);
+   printf("String entered is: %s\n", str);
+	
+   return(0);
 }
