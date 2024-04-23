@@ -34,9 +34,9 @@ void bit_reset(){
 
 void bit_toggle(){
 
-    int a = 0b00000100;
-    //toggle third bit from right by XORing with
-    a ^= (1 << (3 - 1));
+    int a = 0b00001000;
+    //toggle third bit from right by XORing with a one shifted to desired position
+    a ^= (1 << 3);
 
     print_int_bits(&a);
 
