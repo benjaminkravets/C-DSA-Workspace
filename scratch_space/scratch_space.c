@@ -4,7 +4,7 @@ int main () {
    int a;
    char str[50];
 	 
-   printf("Enter an integer value: ");
+   printf("Enter an integer value ");
    scanf("%d", &a);
    assert(a >= 10);
    printf("Integer entered is %d\n", a);
@@ -12,7 +12,7 @@ int main () {
    printf("Enter string: ");
    scanf("%s", str);
    assert(str != NULL);
-   printf("String entered is: %s\n", str);
+   printf("String entered is %s\n", str);
 	
    return(0);
 }
