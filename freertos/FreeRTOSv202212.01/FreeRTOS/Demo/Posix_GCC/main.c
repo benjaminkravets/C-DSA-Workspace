@@ -72,8 +72,11 @@
     #include <trcRecorder.h>
 #endif
 
-#define    BLINKY_DEMO    0
-#define    FULL_DEMO      1
+#define    BLINKY_DEMO              0
+#define    FULL_DEMO                1
+
+#define    TIMER_DEMO               2
+#define    DTN_DEMO                 3
 
 #ifdef BUILD_DIR
     #define BUILD         BUILD_DIR
@@ -85,7 +88,7 @@
 #ifdef USER_DEMO
     #define     mainSELECTED_APPLICATION    USER_DEMO
 #else /* Default Setting */
-    #define    mainSELECTED_APPLICATION     FULL_DEMO
+    #define    mainSELECTED_APPLICATION     DTN_DEMO
 #endif
 
 /* This demo uses heap_3.c (the libc provided malloc() and free()). */
@@ -94,6 +97,10 @@
 extern void main_blinky( void );
 extern void main_full( void );
 static void traceOnEnter( void );
+
+extern void main_timer( void );
+extern void main_dtn( void );
+
 
 /*
  * Only the comprehensive demo uses application hook (callback) functions.  See
@@ -182,6 +189,16 @@ int main( void )
         {
             console_print( "Starting full demo\n" );
             main_full();
+        }
+    #elif ( mainSELECTED_APPLICATION == TIMER_DEMO )
+        {
+            console_print( "Starting timer demo\n" );
+            main_timer();
+        }
+    #elif ( mainSELECTED_APPLICATION == DTN_DEMO )
+        {
+            console_print( "Starting timer demo\n" );
+            main_dtn();
         }
     #else
         {

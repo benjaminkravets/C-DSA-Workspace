@@ -61,5 +61,14 @@ int main()
 
     printf("%i, %c, %f, \r\n", type_3_instance.a, type_3_instance.b, type_3_instance.c);
 
+    struct_type_2_type type_2_instance_3 = {
+        .a = 5,
+        .b = 'a',
+        .c = 5.678
+    };
+
+    printf("%i, %c, %f, \r\n", type_2_instance_3.a, type_2_instance_3.b, type_2_instance_1.c);
+
+
     return 0;
 }

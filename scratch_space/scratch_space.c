@@ -1,18 +1,21 @@
 #include <assert.h>
 #include <stdio.h>
+
+
+char str[20] = "check";
+int d = 12345;
+
+int outer_function(int a, int b){
+
+   return a + b;
+   
+}
+
 int main () {
-   int a;
-   char str[50];
-	 
-   printf("Enter an integer value ");
-   scanf("%d", &a);
-   assert(a >= 10);
-   printf("Integer entered is %d\n", a);
-    
-   printf("Enter string: ");
-   scanf("%s", str);
-   assert(str != NULL);
-   printf("String entered is %s\n", str);
-	
-   return(0);
+
+   int c = outer_function(1, 1);
+
+   printf("%i", c);
+
+   return 0;
 }
