@@ -84,8 +84,8 @@ ifdef PROFILE
   CFLAGS              +=   -pg  -O0
   LDFLAGS             +=   -pg  -O0
 else
-  CFLAGS              +=   -O0
-  LDFLAGS             +=   -O0
+  CFLAGS              +=   -O3
+  LDFLAGS             +=   -O3
 endif
 
 ifdef SANITIZE_ADDRESS

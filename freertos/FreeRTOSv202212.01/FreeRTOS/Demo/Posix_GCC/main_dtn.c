@@ -26,14 +26,14 @@ void main_dtn(void)
                                  pdTRUE,                // automatically reload
                                  NULL,                  // timer ID (not used)
                                  timer_print_callback); // callback function
-    
-    task_0_print = xTaskCreate(task_0_main,
-                                "Print task",
-                                configMINIMAL_STACK_SIZE,
-                                NULL,
-                                tskIDLE_PRIORITY + 1,
-                                task_0_print
-                                );
+
+
+    xTaskCreate(task_0_main,
+                "Print task",
+                configMINIMAL_STACK_SIZE,
+                NULL,
+                tskIDLE_PRIORITY + 1,
+                &task_0_print);
 
     if (timer_0_print != NULL)
     {
@@ -53,15 +53,30 @@ void main_dtn(void)
 
 static void timer_print_callback(TimerHandle_t timer_handle)
 {
-    //printf("Timer called \r\n");
-    xTaskNotify(task_0_print, 1, );
+    // printf("Timer called \r\n");
+    if (xTaskNotify(task_0_print, 0x01, eNoAction) == pdPASS)
+    {
+        printf("Notified task 0");
+    }
+    else
+    {
+        printf("Could not notify task 0");
+    }
 }
 
 void task_0_main(void *pvParameters)
 {
+    uint32_t task_0_notification_value;
 
     while (1)
     {
+
+
+        xTaskNotifyWait(0x00,
+                               ULLONG_MAX,
+                               &task_0_notification_value,
+                               portMAX_DELAY);
+
         vTaskDelay(PRINT_FREQUENCY_MS);
         printf("Task continued \r\n");
     }
