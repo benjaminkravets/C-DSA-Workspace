@@ -9,7 +9,7 @@ int add(int k, int l)
 //pointer to an operator function is passed in along with its arguments
 int call_operation(int x, int y, int (*func)(int, int))
 {
-	return (func(x,y));
+	return func(x,y);
 }
 
 int main()

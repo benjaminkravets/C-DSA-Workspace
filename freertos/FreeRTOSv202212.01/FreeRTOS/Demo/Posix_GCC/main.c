@@ -77,6 +77,7 @@
 
 #define    TIMER_DEMO               2
 #define    DTN_DEMO                 3
+#define    STREAM_BUFFER_DEMO       4
 
 #ifdef BUILD_DIR
     #define BUILD         BUILD_DIR
@@ -84,12 +85,9 @@
     #define BUILD         "./"
 #endif
 
-/* Demo type is passed as an argument */
-#ifdef USER_DEMO
-    #define     mainSELECTED_APPLICATION    USER_DEMO
-#else /* Default Setting */
-    #define    mainSELECTED_APPLICATION     DTN_DEMO
-#endif
+
+#define    mainSELECTED_APPLICATION     STREAM_BUFFER_DEMO
+
 
 /* This demo uses heap_3.c (the libc provided malloc() and free()). */
 
@@ -97,10 +95,6 @@
 extern void main_blinky( void );
 extern void main_full( void );
 static void traceOnEnter( void );
-
-extern void main_timer( void );
-extern void main_dtn( void );
-
 
 /*
  * Only the comprehensive demo uses application hook (callback) functions.  See
@@ -199,6 +193,11 @@ int main( void )
         {
             console_print( "Starting timer demo\n" );
             main_dtn();
+        }
+    #elif ( mainSELECTED_APPLICATION == STREAM_BUFFER_DEMO )
+        {
+            console_print( "Starting stream buffer demo\n" );
+            main_stream_buffer();
         }
     #else
         {
