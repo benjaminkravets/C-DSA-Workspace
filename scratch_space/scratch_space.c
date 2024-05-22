@@ -13,7 +13,7 @@ int outer_function(int a, int b){
 
 int main () {
 
-   int c = outer_function(1, 1);
+   int c = outer_function();
 
    printf("%i", c);
 
