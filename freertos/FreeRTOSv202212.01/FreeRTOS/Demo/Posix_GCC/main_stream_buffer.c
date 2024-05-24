@@ -6,6 +6,7 @@
 #include "task.h"
 #include "timers.h"
 #include "semphr.h"
+#include "stream_buffer.h"
 
 /* Local includes. */
 #include "console.h"
@@ -14,6 +15,10 @@
 
 static TimerHandle_t timer_0_print = NULL;                    // timer handle
 static void timer_print_callback(TimerHandle_t timer_handle); // timer callback
+
+static StreamBufferHandle_t stream_buffer_0;
+
+int a;
 
 void main_stream_buffer(void)
 {
@@ -27,6 +32,14 @@ void main_stream_buffer(void)
     if (timer_0_print != NULL)
     {
         xTimerStart(timer_0_print, 0);
+    }
+
+    stream_buffer_0 = xStreamBufferCreate(32,
+                                          10);
+
+    if (stream_buffer_0 == NULL) {
+        printf("Stream buffer alloc failed \r\n");
+        return 0;
     }
 
     vTaskStartScheduler();
@@ -43,4 +56,5 @@ void main_stream_buffer(void)
 static void timer_print_callback(TimerHandle_t timer_handle)
 {
     printf("Timer called \r\n");
+    xStreamBufferSend()
 }

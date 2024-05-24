@@ -107,7 +107,7 @@ void vConfigureTimerForRunTimeStats( void );    /* Prototype of function that in
 #define INCLUDE_xTimerPendFunctionCall            1
 #define INCLUDE_xTaskAbortDelay                   1
 
-#define configINCLUDE_MESSAGE_BUFFER_AMP_DEMO     0
+#define configINCLUDE_MESSAGE_BUFFER_AMP_DEMO     1
 #if ( configINCLUDE_MESSAGE_BUFFER_AMP_DEMO == 1 )
     extern void vGenerateCoreBInterrupt( void * xUpdatedMessageBuffer );
     #define sbSEND_COMPLETED( pxStreamBuffer )    vGenerateCoreBInterrupt( pxStreamBuffer )
