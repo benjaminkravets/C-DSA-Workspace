@@ -17,7 +17,7 @@ int main()
 	int a = 1, b = 2;
 
 	//Call a math operator by passing arguments and an operator function pointer
-	int c = call_operation(a, b, &add);
+	int c = call_operation(a, b, add);
 
 	cout << c << endl;
 }

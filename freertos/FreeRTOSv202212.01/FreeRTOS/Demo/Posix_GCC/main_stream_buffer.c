@@ -18,8 +18,6 @@ static void timer_print_callback(TimerHandle_t timer_handle); // timer callback
 
 static StreamBufferHandle_t stream_buffer_0;
 
-int a;
-
 void main_stream_buffer(void)
 {
 
@@ -33,11 +31,16 @@ void main_stream_buffer(void)
     {
         xTimerStart(timer_0_print, 0);
     }
+    else
+    {
+        printf("Timer alloc failed \r\n");
+    }
 
-    stream_buffer_0 = xStreamBufferCreate(32,
-                                          10);
+    stream_buffer_0 = xStreamBufferCreate(32, // size in bytes
+                                          1); // how many bytes need to be in buffer to trigger unblock
 
-    if (stream_buffer_0 == NULL) {
+    if (stream_buffer_0 == NULL)
+    {
         printf("Stream buffer alloc failed \r\n");
         return 0;
     }
@@ -55,6 +58,10 @@ void main_stream_buffer(void)
 
 static void timer_print_callback(TimerHandle_t timer_handle)
 {
-    printf("Timer called \r\n");
-    xStreamBufferSend()
+    printf("Sending to stream_buffer_0 \r\n");
+
+    uint8_t buffer_data[32];
+
+    memset(buffer_data, 0, 32);
+
 }

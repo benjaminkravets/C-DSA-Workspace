@@ -28,6 +28,10 @@ void main_timer(void)
     {
         xTimerStart(timer_0_print, 0);
     }
+    else
+    {
+        printf("Timer alloc failed \r\n");
+    }
 
     vTaskStartScheduler();
 

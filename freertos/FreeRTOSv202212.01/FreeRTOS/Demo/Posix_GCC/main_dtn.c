@@ -27,16 +27,24 @@ void main_dtn(void)
                                  NULL,                  // timer ID (not used)
                                  timer_print_callback); // callback function
 
-    xTaskCreate(task_0_main,
-                "Print task",
-                configMINIMAL_STACK_SIZE,
-                NULL,
-                tskIDLE_PRIORITY + 1,
-                &task_0_print);
-
     if (timer_0_print != NULL)
     {
         xTimerStart(timer_0_print, 0);
+    }
+    else
+    {
+        printf("Timer alloc failed \r\n");
+    }
+
+    BaseType_t task_created = xTaskCreate(task_0_main,              // entry function
+                                          "Print task",             // debug name
+                                          configMINIMAL_STACK_SIZE, // stack size (words)
+                                          NULL,                     // parameters to entry function
+                                          tskIDLE_PRIORITY + 1,     // priority
+                                          &task_0_print);           // task handle
+    if (task_created != pdPASS)
+    {
+        printf("Task alloc failed \r\n");
     }
 
     vTaskStartScheduler();
