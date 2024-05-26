@@ -16,7 +16,7 @@ static TimerHandle_t timer_0_print = NULL;                    // timer handle
 static void timer_print_callback(TimerHandle_t timer_handle); // timer callback
 
 static TaskHandle_t task_0_print = NULL; // print task handle
-void task_0_main(void *pvParameters);    // task main loop
+static void task_0_main(void *pvParameters);    // task main loop
 
 void main_dtn(void)
 {
@@ -73,7 +73,7 @@ static void timer_print_callback(TimerHandle_t timer_handle)
     notification_value += 1;
 }
 
-void task_0_main(void *pvParameters)
+static void task_0_main(void *pvParameters)
 {
     uint32_t task_0_notification_value;
 

@@ -2,20 +2,14 @@
 #include <stdio.h>
 
 
-char str[20] = "check";
-int d = 12345;
+char full_name[30];
 
-int outer_function(int a, int b){
-
-   return a + b;
-   
-}
 
 int main () {
 
-   int c = outer_function();
+   //what does this do
+   char *text = calloc(1,1), buffer[32];
 
-   printf("%i", c);
 
    return 0;
 }

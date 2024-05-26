@@ -105,6 +105,7 @@
         "death.h": "c",
         "stdlib.h": "c",
         "stream_buffer.h": "c",
-        "messagebufferdemo.h": "c"
+        "messagebufferdemo.h": "c",
+        "freertos.h": "c"
     }
 }
