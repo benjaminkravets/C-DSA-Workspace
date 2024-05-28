@@ -9,6 +9,7 @@ struct struct_type_1
     double c;
 };
 
+// use struct_type_2_type to refer to struct struct_type_2
 typedef struct struct_type_2
 {
     int a;
@@ -16,11 +17,13 @@ typedef struct struct_type_2
     double c;
 } struct_type_2_type;
 
+// create struct and an instance of it
 struct struct_type_3
 {
     int a;
     char b;
     double c;
+
 } type_3_instance;
 
 int main()
@@ -34,7 +37,6 @@ int main()
     type_1_instance.c = 1.234;
 
     printf("%i, %c, %f, \r\n", type_1_instance.a, type_1_instance.b, type_1_instance.c);
-
 
     // define two instances of struct type 2 using struct and using typedef
     struct struct_type_2 type_2_instance_1;
@@ -53,7 +55,6 @@ int main()
 
     printf("%i, %c, %f, \r\n", type_2_instance_2.a, type_2_instance_2.b, type_2_instance_2.c);
 
-
     // use defined instance of struct_type_3
     type_3_instance.a = 4;
     type_3_instance.b = 'd';
@@ -64,11 +65,9 @@ int main()
     struct_type_2_type type_2_instance_3 = {
         .a = 5,
         .b = 'a',
-        .c = 5.678
-    };
+        .c = 5.678};
 
     printf("%i, %c, %f, \r\n", type_2_instance_3.a, type_2_instance_3.b, type_2_instance_1.c);
-
 
     return 0;
 }
