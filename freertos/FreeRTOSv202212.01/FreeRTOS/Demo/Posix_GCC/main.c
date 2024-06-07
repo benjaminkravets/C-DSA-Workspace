@@ -78,6 +78,7 @@
 #define    TIMER_DEMO               2
 #define    DTN_DEMO                 3
 #define    STREAM_BUFFER_DEMO       4
+#define    EVENT_BITS_DEMO          5
 
 #ifdef BUILD_DIR
     #define BUILD         BUILD_DIR
@@ -86,7 +87,7 @@
 #endif
 
 
-#define    mainSELECTED_APPLICATION     STREAM_BUFFER_DEMO
+#define    mainSELECTED_APPLICATION     EVENT_BITS_DEMO
 
 
 /* This demo uses heap_3.c (the libc provided malloc() and free()). */
@@ -198,6 +199,11 @@ int main( void )
         {
             console_print( "Starting stream buffer demo\n" );
             main_stream_buffer();
+        }
+    #elif ( mainSELECTED_APPLICATION == EVENT_BITS_DEMO )
+        {
+            console_print( "Starting event bits demo\n" );
+            main_event_bits();
         }
     #else
         {

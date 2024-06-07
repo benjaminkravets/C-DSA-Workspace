@@ -3,11 +3,24 @@
 #include <iostream>
 using namespace std;
  
+ void swap(int& x, int& y)
+{
+    int temp = x;
+    x = y;
+    y = temp;
+};
 
 int main()
 {
-    int x;
-    Cpp_Struct obj1;
-    cout << "Struct with constant members: x" << x << endl;
-    return 0;
+    int a = 1;
+    int& b = a;
+
+
+    cout << a << endl;
+    
+    b = 2;
+
+    cout << a << endl;
+
+
 }

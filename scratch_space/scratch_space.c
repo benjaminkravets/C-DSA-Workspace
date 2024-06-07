@@ -2,40 +2,31 @@
 #include <stdio.h>
 
 
-char full_name[30];
+void modify(int a[static 3]){
 
-
+   for(int y = 0; y < 5; y++){
+      a[y] = 5;
+   }
+}
 
 
 int main () {
 
-   //what does this do
-   char *text = calloc(1,1), buffer[32];
 
-   // unsigned char input[20];
+   char input[20];
 
-   // fgets(input, sizeof(input), stdin);
+   fgets(input, sizeof(input), stdin);
 
-   // printf("%s \r\n", input);
+   printf("%s \r\n", input);
 
-   unsigned int a = 1;
+   // int b[7] = {1, 2, 3};
 
-   struct {
-      unsigned int x : 1;
-      unsigned int y : 1;
-      unsigned int z : 1;
-      unsigned int x1 : 1;
-      unsigned int y1 : 1;
-      unsigned int z1 : 1;
 
-   } status;
+   // modify(b);
 
-   status.x = 101;
-   status.y = 0;
+   // for(int y = 0; y < 5; y++){
+   //    printf("%i ", b[y]);
+   // }
 
-   printf("%i %i \r\n", status.x, status.y);
 
-   printf("%i \r\n", sizeof(status));
-
-   return 0;
 }
