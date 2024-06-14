@@ -26,6 +26,14 @@ struct struct_type_3
 
 } type_3_instance;
 
+// create struct instance without a type
+struct
+{
+    int a;
+    char b;
+    double c;
+} type_4_instance;
+
 int main()
 {
 
@@ -68,6 +76,13 @@ int main()
         .c = 5.678};
 
     printf("%i, %c, %f, \r\n", type_2_instance_3.a, type_2_instance_3.b, type_2_instance_1.c);
+
+    // assign values to struct instance with no defined type
+    type_4_instance.a = 5;
+    type_4_instance.b = 'e';
+    type_4_instance.c = 5.678;
+
+    printf("%i, %c, %f, \r\n", type_4_instance.a, type_4_instance.b, type_4_instance.c);
 
     return 0;
 }

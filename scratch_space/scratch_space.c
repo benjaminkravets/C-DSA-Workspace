@@ -2,31 +2,33 @@
 #include <stdio.h>
 
 
-void modify(int a[static 3]){
 
-   for(int y = 0; y < 5; y++){
-      a[y] = 5;
-   }
-}
+
+struct my_struct{
+   __int8_t a;
+   __int8_t b;
+   char c;
+
+
+
+} my_struct_instance;
 
 
 int main () {
 
 
-   char input[20];
+   // char input[20];
 
-   fgets(input, sizeof(input), stdin);
+   // fgets(input, sizeof(input), stdin);
 
-   printf("%s \r\n", input);
+   // printf("%s \r\n", input);
 
-   // int b[7] = {1, 2, 3};
+   my_struct_instance.a = 1;
+   my_struct_instance.c = 'c';
 
+   int j = -1;
 
-   // modify(b);
-
-   // for(int y = 0; y < 5; y++){
-   //    printf("%i ", b[y]);
-   // }
+   printf("%i \r\n", j);
 
 
 }

@@ -59,4 +59,8 @@ int main()
     Car my_car;
     my_car.shift_to_gear(2);
     my_car.fill_tires(40);
+
+    Truck my_truck;
+    my_truck.shift_to_gear(3);
+    my_truck.fill_tires(38);
 }
