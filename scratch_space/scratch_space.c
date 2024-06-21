@@ -4,7 +4,7 @@
 
 
 
-struct my_struct{
+struct {
    __int8_t a;
    __int8_t b;
    char c;
@@ -23,12 +23,14 @@ int main () {
 
    // printf("%s \r\n", input);
 
-   my_struct_instance.a = 1;
-   my_struct_instance.c = 'c';
+   int a = 2;
 
-   int j = -1;
+   int * b = &a;
 
-   printf("%i \r\n", j);
+   *b = 1;
+
+
+   printf("%i \r\n", *b);
 
 
 }

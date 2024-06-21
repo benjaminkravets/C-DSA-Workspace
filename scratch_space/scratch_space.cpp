@@ -3,34 +3,28 @@
 #include <iostream>
 using namespace std;
 
-// class Singleton
-// {
-// public:
-//     static Singleton *GetInstance()
-//     {
-//         if (instance_ == NULL)
-//         {
-//             instance_ = new Singleton;
-//         }
-//         return instance_;
-//     }
+class Singleton {
+public:
+  int a;
+  static Singleton* GetInstance() {
 
-// protected:
-//     Singleton(); // no one can create this except itself
-// private:
-//     static Singleton *instance_; // the one single instance
-// };
+    if (instance_ == NULL) {
+      instance_ = new Singleton;
+    }
+    return instance_;
+  }
+protected:
+  Singleton(); // no one can create this except itself
+private:
+  static Singleton* instance_; // the one single instance
+};
+// Define the one and only Singleton pointer
+Singleton* Singleton::instance_ = nullptr;
 
-// Singleton * Singleton::instance_ = nullptr;
 
 int main()
 {
 
-    int a = 1;
-    int& b = a;
-
-    a = 2;
-
-    cout << b << endl;
+  Singleton::GetInstance();
 
 }

@@ -1,0 +1,2 @@
+View disassembly of one section:
+    objdump -s -j .text a.out 
