@@ -19,7 +19,7 @@ static void timer_print_callback(TimerHandle_t timer_handle); // timer callback
 static TaskHandle_t task_0_print = NULL;     // print task handle
 static void task_0_main(void *pvParameters); // task main loop
 
-static EventGroupHandle_t event_group_0; //event group handle (has 32 bits via configUSE_16_BIT_TICKS)
+static EventGroupHandle_t event_group_0; // event group handle (has 32 bits via configUSE_16_BIT_TICKS)
 
 void main_event_bits(void)
 {
@@ -71,7 +71,8 @@ void main_event_bits(void)
 static void timer_print_callback(TimerHandle_t timer_handle)
 {
 
-    xEventGroupSetBits(event_group_0, (1 << 5));
+    xEventGroupSetBits(event_group_0, // event group to set
+                       (1 << 5));     // set bit 5
     printf("TImer 0 set event bit 5 \r\n");
 }
 
@@ -81,7 +82,11 @@ static void task_0_main(void *pvParameters)
     while (1)
     {
 
-        EventBits_t set_bits = xEventGroupWaitBits(event_group_0, (1 << 5), pdTRUE, pdFALSE, portMAX_DELAY);
+        EventBits_t set_bits = xEventGroupWaitBits(event_group_0,  // event group to wait on
+                                                   (1 << 5),       // bit to wait on
+                                                   pdTRUE,         // clear the bit on exit
+                                                   pdFALSE,        // don't wait for all bits- just bit 5
+                                                   portMAX_DELAY); // wait indefinitely
 
         printf("Task 0 unblocked on bit 5 set\r\n");
     }
