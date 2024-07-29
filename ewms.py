@@ -1,12 +1,13 @@
-import pandas as pd
-import numpy as np
+class NumberFunctor:
+   def __init__(self, value):
+      self.value = value
+        
+   def __call__(self, f):
+      return f(self.value)
+    
+def square(x):
+   return x * x
 
-
-ilist = [1,2,3,4]
-
-print(list(reversed(ilist)))
-
-here = pd.DataFrame(reversed(ilist))
-
-
-print(here.ewm(alpha=.5).mean().iloc[-1].values, np.mean(here))
+functor = NumberFunctor(5)
+result = functor(square)
+print(result)

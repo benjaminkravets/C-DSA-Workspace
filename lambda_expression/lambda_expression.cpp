@@ -1,4 +1,4 @@
-//from https://www.scaler.com/topics/cpp/lambda-function-cpp/
+// from https://www.scaler.com/topics/cpp/lambda-function-cpp/
 #include <iostream>
 #include <list>
 #include <vector>
@@ -29,8 +29,5 @@ int main()
         }
         if(!notPrime){
             printf("%i is prime \n", x);
-        }
-         });
-
+        } });
 }
-

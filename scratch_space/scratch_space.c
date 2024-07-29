@@ -4,33 +4,29 @@
 
 
 
-struct {
-   __int8_t a;
-   __int8_t b;
-   char c;
+void print_int(int ints_to_print[10]){
 
+   for (int i = 0; i < 10; i++){
+      printf("%i \r\n", *(ints_to_print+i));
+   }
 
-
-} my_struct_instance;
+}
 
 
 int main () {
 
 
-   // char input[20];
-
-   // fgets(input, sizeof(input), stdin);
-
-   // printf("%s \r\n", input);
-
-   int a = 2;
-
-   int * b = &a;
-
-   *b = 1;
+   int my_ints[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
 
-   printf("%i \r\n", *b);
+   print_int(my_ints);
+
+
+
+
+
+
+   
 
 
 }
