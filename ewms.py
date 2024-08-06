@@ -5,7 +5,7 @@ class NumberFunctor:
    def __call__(self, f):
       return f(self.value)
     
-def square(x):
+def square(x):d
    return x * x
 
 functor = NumberFunctor(5)
