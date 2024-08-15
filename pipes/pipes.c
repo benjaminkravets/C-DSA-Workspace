@@ -9,7 +9,7 @@ char *msg1 = "Hello, World! 1";
 char *msg2 = "Hello, World! 2";
 char *msg3 = "Hello, World! 3";
 
-
+char * msg[3] = {"Hello, World! 1", "Hello, World! 2", "Hello, World! 3"};
 
 int pipe_interprocess()
 {
@@ -52,9 +52,9 @@ void pipe_intraprocess()
     if (pipe(p) < 0)
         exit(1);
 
-    write(p[1], msg1, MSGSIZE);
-    write(p[1], msg2, MSGSIZE);
-    write(p[1], msg3, MSGSIZE);
+    write(p[1], msg[0], MSGSIZE);
+    write(p[1], msg[1], MSGSIZE);
+    write(p[1], msg[2], MSGSIZE);
 
     for (int i = 0; i < 3; i++)
     {
@@ -65,7 +65,7 @@ void pipe_intraprocess()
 
 int main()
 {
-    //pipe_intraprocess();
-    pipe_interprocess();
+    pipe_intraprocess();
+    //pipe_interprocess();
     return 0;
 }
