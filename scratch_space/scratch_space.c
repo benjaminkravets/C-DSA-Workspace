@@ -1,23 +1,6 @@
-#include <assert.h>
 #include <stdio.h>
 
-
-
-
-
-
-
-int main () {
-
-
-   char messaged[5][5] = {"hello", "world"};
-
-
-
-   printf("%s", messaged[0]);
-
-
-   
-
-
+int main() {
+   printf("Hello world \n");
+   return 0;
 }
