@@ -1,2 +1,11 @@
 View disassembly of one section:
     objdump -s -j .text a.out 
+
+View info including sections/segments:
+    readelf -a a.out
+
+Build up to..
+    Preprocessing gcc -E -P
+    Compilation gcc -S
+    Assembly gcc -c 
+    Linking gcc 

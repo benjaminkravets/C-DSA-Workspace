@@ -1,6 +1,5 @@
 // Linked list implementation in C++
 
-//#include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
 
