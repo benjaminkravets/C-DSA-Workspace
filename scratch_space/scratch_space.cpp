@@ -1,20 +1,35 @@
-#include <map>
-#include <stdlib.h>
 #include <iostream>
-
-
 using namespace std;
-
-
-int func_up() {
-    int a = 1 + 1;
-    return a;
-}
  
-int main()
+class Base {
+    // private member variable
+    int x;
+ 
+public:
+    // pure virtual function
+    virtual void fun() = 0;
+ 
+    // getter function to access x
+    int getX() { return x; }
+};
+ 
+// This class inherits from Base and implements fun()
+class Derived : public Base {
+    // private member variable
+    int y;
+ 
+public:
+    // implementation of the pure virtual function
+    void fun() { cout << "fun() called"; }
+};
+ 
+int main(void)
 {
+    // creating an object of Derived class
+    Derived d;
  
-    cout << func_up << " " << func_up << endl;
+    // calling the fun() function of Derived class
+    d.fun();
  
     return 0;
 }

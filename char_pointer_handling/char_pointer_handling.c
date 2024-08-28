@@ -4,23 +4,23 @@
 int main()
 {
 
-	// char array (not directly modifiable using = but can be with strcpy(), string stored in .text)
+	// char array (not directly mutable using = but can be with strcpy(), string stored in .text)
+	// in array decay, the name of the array is the same as the address of the first element, so &(name_0[0] == name_0
+
 	char name_0[] = "test str 1";
 	printf("%s \n\n", name_0);
-	// in array decay, the name of the array is the same as the address of the first element
-	printf("%s \n\n", &(name_0[0]));
-
+	
 
  	// char array using strcpy (initializing using a known buffer length is best practice)
 	char name_1[20];
 	strncpy(name_1, "test str 2", sizeof("test str 2"));
 	printf("%s \n\n", name_1);
  
-	// pointer to char array (modifiable)
+	// pointer to char array (mutable)
 	char *name_1_ptr = name_1;
 	printf("%s \n\n", name_1_ptr);
  
-	// char pointer (where the pointer points is modifiable, string stored in .rodata). Const pointer reflects that this is not modifiable during runtime.
+	// char pointer (where the pointer points is mutable, string stored in .rodata). Const pointer reflects that this is not mutable during runtime.
 	const char *name_2 = "test str 3";
 	printf("%s \n\n", name_2);
 	
