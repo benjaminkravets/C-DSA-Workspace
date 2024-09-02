@@ -1,7 +1,7 @@
 
 #include <stdio.h>
 
-int fn1(){
+void fn1(){
     printf("fn1 called \n");
     return 0;
 }
@@ -15,5 +15,6 @@ int main(){
     void (*func_ptr)(void) = (void (*)())fn1_address;
 
     func_ptr();
+
 
 }

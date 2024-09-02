@@ -2,4 +2,3 @@ rm <bits/std etc.>
 quirks of c
 circular buffer
 transform //using parallel execution
-jump using func call

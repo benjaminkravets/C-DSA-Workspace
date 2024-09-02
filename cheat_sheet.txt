@@ -9,3 +9,6 @@ Build up to..
     Compilation gcc -S
     Assembly gcc -c 
     Linking gcc 
+
+Convert .elf to .hex:
+    objcopy -O ihex a.out output.hex

@@ -1,46 +1,20 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdint.h>
 
-void up_here()
-{
 
-    return 0;
-}
+#define BAR(X) printf("1 %i", X), printf("2 %i \n", X)
+//#undef BAR(X)
+//#define BAR(X) do {printf("1 %i", X); printf("2 %i \n", X);} while(0)
 
-void down_here()
-{
-    //char a[] = "string literal";
-    char *p = "string literal";
-    char *name_2 = "test str 3";
+int main(){
 
-    //a[0] = 'a';
-    //p = 'a';
 
-    void * ga;
+    if (1)
+        BAR(1);
+    else
+        printf("No \n");
 
-    printf("%s \n", p);
 
-    printf("%i \n", sizeof(ga));
-
-    return 0;
-}
-
-int main(int argc, char *argv[])
-{
-
-    int prog = 2;
-
-    switch (prog)
-    {
-    case 1:
-        up_here();
-        break;
-
-    case 2:
-        down_here();
-        break;
-
-    default:
-        break;
-    }
 }
