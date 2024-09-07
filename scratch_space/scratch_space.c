@@ -2,19 +2,45 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdint.h>
+#include <string.h>
 
 
-#define BAR(X) printf("1 %i", X), printf("2 %i \n", X)
-//#undef BAR(X)
-//#define BAR(X) do {printf("1 %i", X); printf("2 %i \n", X);} while(0)
+void paws(){
+    uint8_t foo[] = "S PBCDE P 1000 S EDFSJ P 0x10 S sde END";
 
-int main(){
+    uint8_t *next_tok;
 
+    next_tok = strtok(foo, " ");
 
-    if (1)
-        BAR(1);
-    else
-        printf("No \n");
+    do
+    {
+        if (next_tok != NULL)
 
+            if (strcmp(next_tok, "S") == 0)
+            {
+                printf("%s send %s\n", next_tok, strtok(NULL, " "));
+            }
+            else if (strcmp(next_tok, "R") == 0)
+            {
+                printf("%s receive %s\n", next_tok, strtok(NULL, " "));
+            }
+            else if (strcmp(next_tok, "P") == 0)
+            {
+                printf("%s pause %s\n", next_tok, strtok(NULL, " "));
+            }
+            else if (strcmp(next_tok, "END") == 0)
+            {
+                printf("%s end\n", next_tok);
+            }
 
+        next_tok = strtok(NULL, " ");
+
+    } while (next_tok != NULL);
+
+}
+
+int main()
+{
+
+    paws();
 }
