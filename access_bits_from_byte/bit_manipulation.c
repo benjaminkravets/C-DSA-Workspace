@@ -6,7 +6,7 @@ void print_int_bits(int * ptr){
     int print_byte;
     
     for (int i = 7; i >= 0; i--){
-        print_byte = *ptr >> i & 1;
+        print_byte = (*ptr >> i) & 1;
         printf("%i ", print_byte);
     }
     puts("");

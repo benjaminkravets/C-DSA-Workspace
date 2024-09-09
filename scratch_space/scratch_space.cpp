@@ -2,19 +2,14 @@
 using namespace std;
 
 
+auto adder (int here, int there) -> int {
+    return here + there;
+}
+
 
 int main()
 {
 
-    int a = 2;
-    int &b = a;
-    int &c = b;
-
-    cout << a << " " << b  << " " << c << endl;
-
-
-    a++;
-
-    cout << a << " " << b  << " " << c << endl;
+    cout << adder(1,2) << endl;
 
 }

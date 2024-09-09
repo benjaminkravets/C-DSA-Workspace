@@ -12,3 +12,11 @@ Build up to..
 
 Convert .elf to .hex:
     objcopy -O ihex a.out output.hex
+
+list symbols from object file:
+    nm
+
+linker.ld
+startup.S
+.map
+makefile
