@@ -1,5 +1,5 @@
 #include <iostream>
-using namespace std;
+
 
 
 auto adder (int here, int there) -> int {
@@ -10,6 +10,6 @@ auto adder (int here, int there) -> int {
 int main()
 {
 
-    cout << adder(1,2) << endl;
+    std::cout << adder(1,2) << std::endl;
 
 }
