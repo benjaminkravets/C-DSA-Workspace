@@ -108,6 +108,9 @@
         "messagebufferdemo.h": "c",
         "freertos.h": "c",
         "unistd.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "main.h": "c",
+        "stm32f7xx_hal.h": "c",
+        "stm32f7xx_hal_conf.h": "c"
     }
 }

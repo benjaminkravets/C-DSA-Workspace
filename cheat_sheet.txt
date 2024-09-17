@@ -1,4 +1,6 @@
 View disassembly of one section:
+    objdump -d -j .isr_vector a.out
+View content of one section:
     objdump -s -j .text a.out 
 
 View info including sections/segments:
@@ -10,7 +12,7 @@ Build up to..
     Assembly gcc -c 
     Linking gcc 
 
-Convert .elf to .hex:
+.elf to .hex:
     objcopy -O ihex a.out output.hex
 
 list symbols from object file:

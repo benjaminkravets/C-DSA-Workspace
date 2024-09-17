@@ -70,21 +70,18 @@ void paws()
 }
 
 
-int test() {
-    int x = 10;
+int test(int a) {
 
-    {
-        int y = 20;
-        printf("Inside the block: x = %d \n", x);
-    }
+    char * a = "Hi there";
+    
+    a = "ih ereht";
 
-    printf("Outside the block: x = %d\n", y);
 
     return 0;
 }
 
 int main()
 {
-    test();
+    test(5);
     //paws();
 }
