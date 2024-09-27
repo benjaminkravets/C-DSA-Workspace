@@ -17,8 +17,3 @@ Build up to..
 
 list symbols from object file:
     nm
-
-linker.ld
-startup.S
-.map
-makefile

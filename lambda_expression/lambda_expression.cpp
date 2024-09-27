@@ -10,24 +10,22 @@ using std::cout;
 using std::endl;
 using std::vector;
 
+void print(int a){
+    cout << a << endl;
+}
+
 int main()
 {
     // vector of ints
     vector<int> numbers = {137, 171, 429, 467, 909};
 
-    // visiting each element of nums and seperating prime numbers
-    // using lambda expression
-    for_each(numbers.begin(), numbers.end(), [](int x) mutable
-             {
-        bool notPrime = false;
-        for(int i=2; i<=sqrt(x);i++){
-            if(x%i==0){
-                printf("%i is not prime \n", x);
-                notPrime = true;
-                break;
-            } 
-        }
-        if(!notPrime){
-            printf("%i is prime \n", x);
-        } });
+    // lambdas are anonymous functors
+    // [] - capture clause
+    for_each(numbers.begin(), numbers.end(), [](int& x) mutable
+    { 
+        x++;
+        
+    });
+    
+    for_each(numbers.begin(), numbers.end(), print);
 }
