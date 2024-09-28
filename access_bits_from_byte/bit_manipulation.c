@@ -13,6 +13,15 @@ void print_int_bits(int * ptr){
 
 }
 
+void bit_direct(){                                      
+    int n = 7; int v = 1;
+
+    int a = 0b0011100;
+
+    a = a & ~(1 << n) | (v << n);
+
+    print_int_bits(&a);
+}
 
 void bit_set(){
     int a = 0b00000000;
@@ -46,9 +55,10 @@ void bit_toggle(){
 
 int main(){
 
-    bit_set();
-    bit_reset();
-    bit_toggle();
+    // bit_set();
+    // bit_reset();
+    // bit_toggle();
+    bit_direct();
 
     return 0;
 }
