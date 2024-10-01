@@ -4,6 +4,8 @@
 #include <algorithm>
 using namespace std;
 
+//copied from https://learn.microsoft.com/en-us/cpp/cpp/move-constructors-and-move-assignment-operators-cpp?view=msvc-170
+
 class MemoryBlock
 {
 public:
@@ -127,6 +129,12 @@ int main()
    // MemoryBlock A(10);
    // MemoryBlock B(10);
    // B = move(A);
+
+   MemoryBlock A(20);
+   MemoryBlock B = move(A);
+
+   
+
    
    
 }

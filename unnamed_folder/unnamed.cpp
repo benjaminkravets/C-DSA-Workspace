@@ -17,8 +17,22 @@ void member_initializer()
     cout << foo_0.i << " " << foo_0.x;
 }
 
+// get variable type
+void get_variable_type(){
+    double a = 1;
+    int b = 1;
+    cout << typeid(a).name() << endl;
+    cout << typeid(b).name() << endl;
+
+}
+
+
+
+
 int main()
 {
-    member_initializer();
+    //member_initializer();
+    //get_variable_type();
+
     return 0;
 }

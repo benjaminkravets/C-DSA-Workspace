@@ -25,7 +25,7 @@ int main(){
 
     //Two weak poiners can share non owning access to the same object- with no uniqueness or ownership, 
     //what makes weak pointers special is there knowledge that the object they point to is not deallocated 
-    //danglinng memory.
+    //dangling memory.
 
     shared_ptr<circle> smart_circle_ptr1(new circle(3.2, "cyan"));
 

@@ -7,22 +7,28 @@
 
 using namespace std;
 
-// From geeksforgeeks.com
-
-int &fun(int &b)
+class A
 {
-    b++;
-    // may be acceptable since b is passed, a local var on the stack should not be returned
-    return b;
-}
+    int b;
+    public:
+
+    A(int i) : b(i){};
+
+    int &get()
+    {
+        return b;
+    }
+};
+
+
 
 int main()
 {
-    int a = 2;
+    A A_instance(2);
 
-    int &c = fun(a);
-    // c is a referene to a after it has been incremented
-    cout << c << endl;
-    // original has been incremented;
-    cout << a << endl;
+    //A_instance.get() = 4; //would set the value of b
+
+    cout << A_instance.get() << endl;
+
+    return 0;
 }

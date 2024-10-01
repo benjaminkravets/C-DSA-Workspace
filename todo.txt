@@ -5,4 +5,5 @@ transform //using parallel execution
 trailing return type, decltype, and declval
 structured bindings
 forward declaration of struct
+cpp casts
 register pattern - reading into variable a register (with expression to clear a bit), then setting hte register to this value with OR'd config (LPSPI_SetOnePcsPolarity)
