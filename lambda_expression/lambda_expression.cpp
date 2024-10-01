@@ -10,7 +10,8 @@ using std::cout;
 using std::endl;
 using std::vector;
 
-void print(int a){
+void print(int a)
+{
     cout << a << endl;
 }
 
@@ -20,12 +21,10 @@ int main()
     vector<int> numbers = {137, 171, 429, 467, 909};
 
     // lambdas are anonymous functors
-    // [] - capture clause
-    for_each(numbers.begin(), numbers.end(), [](int& x) mutable
-    { 
-        x++;
-        
-    });
-    
+    for_each(numbers.begin(), numbers.end(), [](int &x)
+             {
+                 x++;
+             });
+
     for_each(numbers.begin(), numbers.end(), print);
 }

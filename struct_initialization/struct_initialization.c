@@ -72,17 +72,24 @@ int main()
 
     struct_type_2_type type_2_instance_3 = {
         .a = 5,
-        .b = 'a',
+        .b = 'e',
         .c = 5.678};
 
-    printf("%i, %c, %f, \r\n", type_2_instance_3.a, type_2_instance_3.b, type_2_instance_1.c);
+    printf("%i, %c, %f, \r\n", type_2_instance_3.a, type_2_instance_3.b, type_2_instance_3.c);
 
     // assign values to struct instance with no defined type
-    type_4_instance.a = 5;
-    type_4_instance.b = 'e';
-    type_4_instance.c = 5.678;
+    type_4_instance.a = 6;
+    type_4_instance.b = 'f';
+    type_4_instance.c = 6.789;
 
     printf("%i, %c, %f, \r\n", type_4_instance.a, type_4_instance.b, type_4_instance.c);
+
+    struct_type_2_type type_2_instance_4 = {
+        7,
+        'g',
+        7.890};
+
+    printf("%i, %c, %f, \r\n", type_2_instance_4.a, type_2_instance_4.b, type_2_instance_4.c);
 
     return 0;
 }

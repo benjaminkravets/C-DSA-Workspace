@@ -1,5 +1,4 @@
 // MemoryBlock.h
-#pragma once
 #include <iostream>
 #include <algorithm>
 using namespace std;
@@ -115,23 +114,25 @@ private:
 int main()
 {
 
+   //use copy constructor
    // MemoryBlock A(20);
    // const MemoryBlock& B(A);
    // MemoryBlock C(B);
 
-   //MemoryBlock A(10);
-   //MemoryBlock B(10);
-   //A=B;
+   //use copy assignment operator;
+   // MemoryBlock A(10);
+   // MemoryBlock B(10);
+   // A=B;
    
-   //MemoryBlock A(10);
-   //MemoryBlock B = move(A);
+   //use move constructor
+   // MemoryBlock A(10);
+   // MemoryBlock B = move(A);
 
+   //use move assignment operator
    // MemoryBlock A(10);
    // MemoryBlock B(10);
    // B = move(A);
 
-   MemoryBlock A(20);
-   MemoryBlock B = move(A);
 
    
 
