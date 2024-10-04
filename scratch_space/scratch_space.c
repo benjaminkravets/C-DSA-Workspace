@@ -5,17 +5,16 @@
 #include <string.h>
 #include <ctype.h>
 
-
-
-
+struct A
+{
+    union
+    {
+        char a;
+        int b;
+    };
+} a;
 
 int main()
 {
-    uint32_t a = 'dcba';
-
-    printf("%c ", a >> 0);
-    printf("%c ", a >> 8);
-    printf("%c ", a >> 16);
-    printf("%c ", a >> 24);
-    
+    a.
 }

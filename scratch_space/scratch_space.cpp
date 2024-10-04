@@ -4,21 +4,28 @@
 #include <cstring>
 
 using namespace std;
+class A
+{
+   public:
+   A()
+   {
+      cout << "A" << endl;
+   }
 
-void func2(int& a){
-   a++;
-}
+};
 
-void func1(int& a){
-   func2(a);
-}
+class B : A
+{
+   public:
+   B()
+   {
+      cout << "B" << endl;
+   }
+
+};
 
 int main()
 {
-   int a = 1;
-
-   func1(a);
-
-   cout << a << endl;
-   
+   int a[10] = {0};
+   a[10] = 1;
 }
