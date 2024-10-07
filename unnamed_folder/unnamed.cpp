@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 
-//1. member initializer
-// https://stackoverflow.com/a/18811765
+// 1. member initializer
+//  https://stackoverflow.com/a/18811765
 struct struct_0
 {
     explicit struct_0(int i) : i(i) {} // x is initialized to 3.1416
@@ -16,8 +16,7 @@ void member_initializer()
     cout << foo_0.i << " " << foo_0.x;
 }
 
-
-//2. get variable type
+// 2. get variable type
 void get_variable_type()
 {
     double a = 1;
@@ -26,8 +25,7 @@ void get_variable_type()
     cout << typeid(b).name() << endl;
 }
 
-
-//3. constructor chaining
+// 3. constructor chaining and member initialization
 class A_0
 {
 public:
@@ -35,78 +33,96 @@ public:
     A_0(int z)
     {
         x = z;
-        cout << "called2" << endl;
+        cout << "A" << endl;
     }
 };
 
 class B_0 : A_0
 {
 public:
-    //calls base constructor before it's own
-    B_0(int z) : A_0(z)
+    int y;
+    // calls base constructor before it's own, then using the same notation, initializes x
+    B_0(int z) : A_0(z), y(z + 1)
     {
-        cout << "called" << endl;
+        cout << "B" << endl;
+        cout << y << endl;
     };
 };
 
-
-//4. aggregate initialization
-class A_1{
-    public:
+// 4. aggregate initialization
+class A_1
+{
+public:
     int a;
     int b;
     int c;
 };
 
-void aggregate_initialization(){
-    struct A_1 A_1_instance = {1,2,3};
+void aggregate_initialization()
+{
+    struct A_1 A_1_instance = {1, 2, 3};
     cout << A_1_instance.a << " " << A_1_instance.b << " " << A_1_instance.c << endl;
 }
 
-
-//5. range-based for loop
-void range_based_loop() {
-    int x[5] = {1,2,3,4,5};
-    for(auto a : x){
+// 5. range-based for loop
+void range_based_loop()
+{
+    int x[5] = {1, 2, 3, 4, 5};
+    for (auto a : x)
+    {
         cout << a << endl;
     }
 }
 
-
-//6. Virtual inheritance to solve the diamond problem
-class A_1 {
+// 6. Virtual inheritance to solve the diamond problem where the A constructor is called twice when a D is created. Try running this with and without the 'virtual' in B and C.
+// https://stackoverflow.com/a/51343645
+class A_2
+{
 public:
-    A_1()                { cout << "A::A() "; }
-    A_1(int x) : m_x(x)  { cout << "A::A(" << x << ") "; }
-    int getX() const   { return m_x; }
+    A_2() { cout << "A::A() "; }
+    A_2(int x) : m_x(x) { cout << "A::A(" << x << ") "; }
+    int getX() const { return m_x; }
+
 private:
     int m_x = 42;
 };
 
-class B_1 : public A_1 {
+class B_2 : virtual public A_2
+{
 public:
-    B_1(int x):A_1(x)   { cout << "B::B(" << x << ") "; }
+    B_2(int x) : A_2(x) { cout << "B::B(" << x << ") "; }
 };
 
-class C_1 : public A_1 {
+class C_2 : virtual public A_2
+{
 public:
-    C_1(int x):A_1(x) { cout << "C::C(" << x << ") "; }
+    C_2(int x) : A_2(x) { cout << "C::C(" << x << ") "; }
 };
 
-class D_1 : public C_1, public B_1  {
+class D_2 : public C_2, public B_2
+{
 public:
-    D_1(int x, int y): C_1(x), B_1(y)   {
-        cout << "D::D(" << x << ", " << y << ") "; }
+    D_2(int x, int y) : C_2(x), B_2(y)
+    {
+        cout << "D::D(" << x << ", " << y << ") ";
+    }
 };
 
+// 7. trailing return type
+auto max(int a, int b) -> int
+{
+    return a > b ? a : b;
+}
 
 int main()
 {
     // member_initializer();
     // get_variable_type();
-    //B_0 b(1);
-    //aggregate_initialization();
-    //range_based_loop();
+    // B_0 b(1);
+    // aggregate_initialization();
+    // range_based_loop();
+    // D_2 a(9, 1);
+    // cout << max(3,1) << endl;
 
     return 0;
 }
