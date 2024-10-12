@@ -6,8 +6,8 @@
 using namespace std;
 
 
+
 int main()
 {
-    int a = 2;
-    decltype(a) b = 3;
+    return 0;
 }

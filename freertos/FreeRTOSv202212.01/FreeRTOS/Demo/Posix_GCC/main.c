@@ -87,7 +87,7 @@
 #endif
 
 
-#define    mainSELECTED_APPLICATION     EVENT_BITS_DEMO
+#define    mainSELECTED_APPLICATION     STREAM_BUFFER_DEMO
 
 
 /* This demo uses heap_3.c (the libc provided malloc() and free()). */

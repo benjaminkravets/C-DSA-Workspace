@@ -50,7 +50,7 @@ void multi_char_constants()
 }
 
 // 4. Anonymous unions in structs
-struct A
+struct A_0
 {
     union
     {
@@ -70,7 +70,6 @@ void anonymous_union_in_struct()
 // 5. specify minimum array size (may only warn)
 void minimum_array_size(int a[static 10])
 {
-
 }
 void pass_array_of_size()
 {
@@ -78,11 +77,58 @@ void pass_array_of_size()
     minimum_array_size(a);
 }
 
+// 6. gcc packed (distance between a and b is not the same, B "packs" everything together causing unaligned memory access)
+struct A_1
+{
+    uint8_t b;
+    uint32_t c;
+};
+
+struct __attribute__((__packed__)) B_1
+{
+    uint8_t b;
+    uint32_t c;
+};
+
+void gcc_packed()
+{
+    struct A_1 a;
+    struct B_1 b;
+
+    printf("%p \r\n", &a.b);
+    printf("%p \r\n", &a.c);
+
+    printf("\r\n");
+
+    printf("%p \r\n", &b.b);
+    printf("%p \r\n", &b.c);
+}
+
+// 7. comma notation in for loop
+void comma_notation()
+{
+    for (uint32_t i = 0; i < 10; i++, printf("%i \r\n", i))
+    {
+    }
+}
+
+// 8. no return
+// try diassembling this both with an without the noreturn attribute (keep an eye on main)
+
+void __attribute__((__noreturn__)) no_return_func()
+{
+    printf("Hi \r\n");
+    exit(0);
+};
+
 int main()
 {
     // cases_share_code();
     // increment_and_dereference();
     // multi_char_constants();
     // anonymous_union_in_struct();
-    pass_array_of_size();
+    // pass_array_of_size();
+    // gcc_packed();
+    // comma_notation();
+    no_return_func();
 }

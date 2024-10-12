@@ -68,6 +68,10 @@ void aggregate_initialization()
 void range_based_loop()
 {
     int x[5] = {1, 2, 3, 4, 5};
+    for (auto &a : x)
+    {
+        a++;
+    };
     for (auto a : x)
     {
         cout << a << endl;
@@ -108,10 +112,36 @@ public:
     }
 };
 
-// 7. trailing return type
+// 7. trailing return type (used with lambdas).
 auto max(int a, int b) -> int
 {
     return a > b ? a : b;
+}
+
+// 8. using 'using'
+class A_3
+{
+public:
+    int y;
+    A_3(int x) : y(x) { cout << "A_3" << endl; }
+};
+
+class B_3 : public A_3
+{
+public:
+    // constructors are not inherited by default but can be accessed with 'using' (this brings in all constructors)
+    using A_3::A_3;
+};
+
+void using_using()
+{
+    // using can act like typedef in c (it can be used for templates while typedef cannot)
+    using u32 = uint32_t;
+    // typedef uint32_t u32; //is equivalent
+    u32 b = 2;
+
+    B_3 d(1);
+    cout << d.y << endl;
 }
 
 int main()
@@ -123,6 +153,8 @@ int main()
     // range_based_loop();
     // D_2 a(9, 1);
     // cout << max(3,1) << endl;
+    using_using();
+
 
     return 0;
 }
