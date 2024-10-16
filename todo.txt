@@ -1,8 +1,17 @@
-quirks of c
-transform //using parallel execution
-trailing return type, decltype, and declval
 structured bindings
+SFINAE
+RAII
+smart pointers
+exception handling - does an exception need to be thrown or does any error work?
+concepts/constraints
+coroutines
+transform //using parallel execution
+structured bindings
+'using' to cause compiler to use child class method with same name as parents'
+python 'map'
 forward declaration of struct
 cpp casts
-structured bindings
+redo bit print with while loop
 register pattern - reading into variable a register (with expression to clear a bit), then setting hte register to this value with OR'd config (LPSPI_SetOnePcsPolarity)
+modules
+CRTP

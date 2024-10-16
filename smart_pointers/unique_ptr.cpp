@@ -34,11 +34,12 @@ int main(){
     unique_ptr<circle> smart_circle_ptr1(new circle(2, "red"));
     cout << smart_circle_ptr1->circumference() << endl;
 
-    //Now if a second pointer is declared to point to the object, the other becomes invalid.
+    //Now if a second pointer is declared to point to the object, the other becomes invalid. (this can only done via move)
     unique_ptr<circle> smart_circle_ptr2 = move(smart_circle_ptr1);
     cout << smart_circle_ptr2->circumference() << endl;
     
     //This would cause a seg fault:
     //cout << smart_circle_ptr1->circumference() << endl;
 
+    //the circle being pointed to will automatically be deleted when the unique_ptr is deleted or reassigned
 }

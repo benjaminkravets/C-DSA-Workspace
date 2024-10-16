@@ -34,4 +34,6 @@ int main(){
     //To confirm multiple owners the count can be accessed
     cout << smart_circle_ptr1.use_count() << endl;
 
+    //when all pointers to the shared object are deleted (out of scope) or pointed to other objects (use count is 0), object will be automatically deleted
+
 }
