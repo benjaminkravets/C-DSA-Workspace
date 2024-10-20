@@ -4,22 +4,22 @@
 #include <cstring>
 #include <array>
 #include <parallel/algorithm>
+#include <tuple>
+#include <string>
+#include <functional>
 
 using namespace std;
 
+void direct_constructor_uniform()
+{
+    int a = 1;
+    int b(1);
+    int c{1};
+    
+}  
+
+
 int main()
 {
-    array<int, 5> v = {5, 2, 1, 8, 2};
-
-    for (auto i : v) cout << i << " ";
-
-    // ...
-
-    // Explicitly force a call to parallel sort.
-    __gnu_parallel::sort(v.begin(), v.end());
-
-    for (auto i : v) cout << i << " ";
-
-
-    return 0;
+    direct_constructor_uniform();
 }

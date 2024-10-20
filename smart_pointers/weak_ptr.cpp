@@ -35,13 +35,13 @@ int main()
     // get weak pointer to data without taking ownership (count will not increase)
     weak_ptr<circle> circle_ptr_3 = circle_ptr_2;
 
-    //weak_ptrs cannot access data directly, but .lock can get a shared pointer that can.
-    //cout << circle_ptr_3.lock()->circumference() << endl;
+    // weak_ptrs cannot access data directly, but .lock can get a shared pointer that can.
+    // cout << circle_ptr_3.lock()->circumference() << endl;
 
-    // expried will tell if object pointed to is deleted (count == 0). weak pointers are not for creating, 
+    // expried will tell if object pointed to is deleted (count == 0). weak pointers are not for creating,
     cout << circle_ptr_3.expired() << endl;
 
-    // reset "deleted" a pointer (can be assigned new value by argument)
+    // reset "deletes" a pointer (can be assigned new value by argument)
     circle_ptr_2.reset();
 
     cout << circle_ptr_3.expired() << endl;

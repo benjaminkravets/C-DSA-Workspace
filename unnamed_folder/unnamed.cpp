@@ -1,4 +1,5 @@
 #include <iostream>
+#include <functional>
 using namespace std;
 
 // 1. member initializer
@@ -144,6 +145,26 @@ void using_using()
     cout << d.y << endl;
 }
 
+// 9.0 invoke and apply
+
+void print_0(int a, int b)
+{
+    cout << a << " " << b << endl;
+}
+void print_1(tuple<int, int> a)
+{
+    cout << get<0>(a) << " " << get<1>(a) << endl;
+}
+
+void invoke_and_apply()
+{
+    // invoke takes any callable and calls it with provided args (callables include function pointer/reference, member function pointer, a class with (), or a pointer to member data)
+    invoke(print_0, 1, 2);
+    invoke(print_1, tuple(1, 2));
+    // apply is similar but will pass a tuple's elements as the arguments
+    apply(print_0, tuple(1, 2));
+}
+
 int main()
 {
     // member_initializer();
@@ -153,7 +174,8 @@ int main()
     // range_based_loop();
     // D_2 a(9, 1);
     // cout << max(3,1) << endl;
-    using_using();
+    //using_using();
+    //invoke_and_apply();
 
 
     return 0;

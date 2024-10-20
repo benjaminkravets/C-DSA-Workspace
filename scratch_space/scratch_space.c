@@ -13,5 +13,6 @@ int vla(int a){
 
 int main()
 {
-    vla(100000000);
+//    vla(1024);
+    printf("%i \r\n", sizeof(uintptr_t));
 }

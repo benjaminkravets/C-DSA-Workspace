@@ -1,20 +1,27 @@
 #include <stdio.h>
 
 // print 8 bits of an integer
-void print_int_bits(int * ptr){
 
+void print_int_bits(int *ptr)
+{
     int print_byte;
-    
-    for (int i = 7; i >= 0; i--){
-        print_byte = (*ptr >> i) & 1;
-        printf("%i ", print_byte);
-    }
-    puts("");
 
+    int i = 8;
+
+    while (i--)
+    {
+        printf("%i ", (*ptr >> i) & 1);
+    }
+
+    //for(int i = 8; i > 0; i--, printf("%i ", (*ptr >> i) & 1)){}
+
+    puts("");
 }
 
-void bit_direct(){                                      
-    int n = 7; int v = 1;
+void bit_direct()
+{
+    int n = 7;
+    int v = 1;
 
     int a = 0b0011100;
 
@@ -23,41 +30,41 @@ void bit_direct(){
     print_int_bits(&a);
 }
 
-void bit_set(){
+void bit_set()
+{
     int a = 0b00000000;
-    //set the bit three bits from right
+    // set the bit three bits from right
     a |= (1 << 3);
 
     print_int_bits(&a);
-
 }
 
-void bit_reset(){
+void bit_reset()
+{
     int a = 0b11111111;
 
-    //reset bit three from right by ANDing with bitwise NOT of desired bit
+    // reset bit three from right by ANDing with bitwise NOT of desired bit
     a &= ~(1 << 3);
 
     print_int_bits(&a);
 }
 
-void bit_toggle(){
+void bit_toggle()
+{
 
     int a = 0b00001000;
-    //toggle third bit from right by XORing with a one shifted to desired position
+    // toggle third bit from right by XORing with a one shifted to desired position
     a ^= (1 << 3);
 
     print_int_bits(&a);
-
 }
 
+int main()
+{
 
-
-int main(){
-
-    // bit_set();
-    // bit_reset();
-    // bit_toggle();
+    bit_set();
+    bit_reset();
+    bit_toggle();
     bit_direct();
 
     return 0;
