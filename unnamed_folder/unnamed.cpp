@@ -145,7 +145,7 @@ void using_using()
     cout << d.y << endl;
 }
 
-// 9.0 invoke and apply
+// 9. invoke and apply
 
 void print_0(int a, int b)
 {
@@ -165,6 +165,27 @@ void invoke_and_apply()
     apply(print_0, tuple(1, 2));
 }
 
+// 10. initialization syntax https://www.learncpp.com/cpp-tutorial/variable-assignment-and-initialization/
+void default_copy_direct_uniform()
+{
+    /* default intitialization */
+    int a;
+    /* copy initialization/assignment */
+    int b = 1;
+    /* direct initialization/assignment (this syntax is still needed when class constructor arguments are needed like a vector length) */
+    int c(1);
+    /*uniform, aggregate, or list intialization allows many types (sets, maps, arrays, ints) to share a consistent syntax.
+        this also prevents narrowing conversions and helps solve the most vexing parse issue
+        (if compiler can't tell if a declaration is a function or object declation, it shooses function).
+        This doesn't invoke copy constructor. Use this unless the surrounding code, adopted style, class or C++ version doesn't.
+        */
+    int d{1};
+    /* same as d{1}*/
+    int e = {1};
+    /* zero (value) initialization */
+    int f{};
+}
+
 int main()
 {
     // member_initializer();
@@ -176,6 +197,7 @@ int main()
     // cout << max(3,1) << endl;
     //using_using();
     //invoke_and_apply();
+    //default_copy_direct_uniform();
 
 
     return 0;

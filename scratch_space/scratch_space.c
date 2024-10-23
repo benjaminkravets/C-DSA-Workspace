@@ -5,14 +5,26 @@
 #include <string.h>
 #include <ctype.h>
 
-int vla(int a){
-    char vla_buffer[a];
-    memset(vla_buffer, 0, a);
-    return 0;
-}
+
+struct a {
+    int a0;
+};
+
+struct b {
+    struct a * a_0;
+};
 
 int main()
 {
-//    vla(1024);
-    printf("%i \r\n", sizeof(uintptr_t));
+    struct b b_0;
+    struct a a_0;
+    b_0.a_0 = &a_0;
+
+    struct b * b_0_ptr = &b_0;
+
+    b_0_ptr->a_0->a0 = 2;
+
+    printf("%i \r\n", b_0_ptr->a_0->a0);
+    
+
 }
