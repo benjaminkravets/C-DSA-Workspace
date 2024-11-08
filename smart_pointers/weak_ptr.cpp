@@ -23,7 +23,7 @@ public:
 
 int main()
 {
-
+    
     // classical pointers don't know if their referenced data is deallocated or not
     circle *circle_ptr_0 = new circle(1, "red");
     circle *circle_ptr_1 = circle_ptr_0;

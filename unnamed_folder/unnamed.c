@@ -121,6 +121,24 @@ void __attribute__((__noreturn__)) no_return_func()
     exit(0);
 };
 
+// 9. function pointers
+
+void jump_to()
+{
+    printf("fn1 called \n");
+}
+
+void function_pointer()
+{
+    void *fn1_address = &jump_to;
+
+    printf("fn1 at %p \n", fn1_address);
+
+    void (*func_ptr)(void) = (void (*)())fn1_address;
+
+    func_ptr();
+}
+
 int main()
 {
     // cases_share_code();
@@ -130,5 +148,6 @@ int main()
     // pass_array_of_size();
     // gcc_packed();
     // comma_notation();
-    no_return_func();
+    // no_return_func();
+    function_pointer();
 }

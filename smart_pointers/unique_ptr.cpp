@@ -33,7 +33,7 @@ int main()
     cout << circle_ptr2->circumference() << endl;
 
     // Such access could lead to atomicity issues from shared ownership, so we can make this property exclusive
-    unique_ptr<circle> smart_circle_ptr1(new circle(2, "red"));
+    unique_ptr<circle> smart_circle_ptr1 = make_unique<circle>(2, "red");
     cout << smart_circle_ptr1->circumference() << endl;
 
     // Now if a second pointer is declared to point to the object, the other becomes invalid. (this can only done via move)

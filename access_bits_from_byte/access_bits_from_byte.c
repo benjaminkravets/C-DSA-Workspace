@@ -62,10 +62,10 @@ void bit_toggle()
 int main()
 {
 
-    bit_set();
-    bit_reset();
-    bit_toggle();
-    bit_direct();
+    // bit_set();
+    // bit_reset();
+    // bit_toggle();
+    // bit_direct();
 
     return 0;
 }

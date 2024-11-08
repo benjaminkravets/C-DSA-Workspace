@@ -16,15 +16,7 @@ struct b {
 
 int main()
 {
-    struct b b_0;
-    struct a a_0;
-    b_0.a_0 = &a_0;
-
-    struct b * b_0_ptr = &b_0;
-
-    b_0_ptr->a_0->a0 = 2;
-
-    printf("%i \r\n", b_0_ptr->a_0->a0);
+    register char* stack_ptr asm("sp");
+    printf("%p", stack_ptr);
     
-
 }

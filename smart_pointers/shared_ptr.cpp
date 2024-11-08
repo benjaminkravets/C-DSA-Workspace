@@ -25,7 +25,7 @@ int main()
 {
 
     // The shared is similar to a normal pointer but it still has ownership and will count how many shared pointers there are
-    shared_ptr<circle> smart_circle_ptr1(new circle(4, "teal"));
+    shared_ptr<circle> smart_circle_ptr1 = make_shared<circle>(4, "teal");
     cout << smart_circle_ptr1->circumference() << endl;
 
     // When a copy is made, ownership is shared, so both pointers can now be used to access the object.

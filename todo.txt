@@ -1,17 +1,25 @@
-aggregate initialization vs direct
-SFINAE
-RAII
 exception handling - does an exception need to be thrown or does any error work?
 concepts/constraints
-variadic templates
+variadic templates and fold expressions
+rule of 0/3/5
+observer, singleton, factory, 
 coroutines
+dumpspecs in gcc?
+disassemble just one function
 'using' to cause compiler to use child class method with same name as parents'
 python 'map'
+python generators vs list and yield
 cpp casts
+metafunctions
+gcc asm 
+enable_if
 forward declaration of struct
 redo bit print with while loop
 register pattern - reading into variable a register (with expression to clear a bit), then setting hte register to this value with OR'd config (LPSPI_SetOnePcsPolarity)
 modules
 CRTP
+type erasure
 gnu_parallel
 transform //using parallel execution
+
+

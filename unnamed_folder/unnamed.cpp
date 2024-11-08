@@ -1,5 +1,6 @@
 #include <iostream>
 #include <functional>
+#include <memory>
 using namespace std;
 
 // 1. member initializer
@@ -172,7 +173,7 @@ void default_copy_direct_uniform()
     int a;
     /* copy initialization/assignment */
     int b = 1;
-    /* direct initialization/assignment (this syntax is still needed when class constructor arguments are needed like a vector length) */
+    /* direct or member initialization/assignment (this syntax is still needed when class constructor arguments are needed like a vector length) */
     int c(1);
     /*uniform, aggregate, or list intialization allows many types (sets, maps, arrays, ints) to share a consistent syntax.
         this also prevents narrowing conversions and helps solve the most vexing parse issue
@@ -186,6 +187,53 @@ void default_copy_direct_uniform()
     int f{};
 }
 
+// 11. SFINAE
+
+template <typename T>
+void f(T i, typename T::t *j) { std::cout << "1" << '\n'; }
+
+template <typename T>
+void f(T i, T j) { std::cout << "2" << '\n'; }
+
+int SFINAE()
+{
+    // The compiler can use the 5 as an int in the first function but int::t* doesn't work, so (without erroring), it moves onto the next most viable function.
+    // since there is a working candidate (the "2" one), the invocation is well-formed
+    f(5, 7);
+    return 0;
+}
+
+// 12. RAII
+
+class MemoryBlock
+{
+private:
+    char *data;
+    int size;
+
+public:
+    MemoryBlock(int size) : size(size), data(new char[size])
+    {
+        cout << "Memory block created" << endl;
+    }
+
+    ~MemoryBlock()
+    {
+        cout << "Memory block deleted" << endl;
+
+        delete[] data;
+    }
+};
+
+// in RAII, the resource (handle) lifetime is tied to a class:
+// resource allocation is done in constructor and resource deallocation is done in destructor.
+// unique pointers do this automatically
+void RAII()
+{
+    MemoryBlock block_0(20);
+    unique_ptr<MemoryBlock> block_ptr_0 = make_unique<MemoryBlock>(20);
+}
+
 int main()
 {
     // member_initializer();
@@ -195,10 +243,11 @@ int main()
     // range_based_loop();
     // D_2 a(9, 1);
     // cout << max(3,1) << endl;
-    //using_using();
-    //invoke_and_apply();
-    //default_copy_direct_uniform();
-
+    // using_using();
+    // invoke_and_apply();
+    // default_copy_direct_uniform();
+    // SFINAE();
+    RAII();
 
     return 0;
 }
