@@ -5,18 +5,18 @@
 #include <string.h>
 #include <ctype.h>
 
-
-struct a {
-    int a0;
+struct A
+{
+    struct B *b;
 };
 
-struct b {
-    struct a * a_0;
+struct B
+{
+    struct A *a;
 };
 
 int main()
 {
-    register char* stack_ptr asm("sp");
-    printf("%p", stack_ptr);
-    
+    struct A g;
+    struct B h;
 }

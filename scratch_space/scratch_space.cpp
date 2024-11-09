@@ -11,11 +11,7 @@
 
 using namespace std;
 
-
-
 int main()
 {
-    RAII();
-
     return 0;
 }

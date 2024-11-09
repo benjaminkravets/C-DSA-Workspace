@@ -2,7 +2,7 @@
 
 using namespace std;
 
-// using this approach, there is now a common interface for all the signs assuming they inherit from the same base.
+// a common interface is needed for a few classes- this appraoch works for all the signs assuming they inherit from the same base.
 
 class Sign
 {
@@ -25,23 +25,43 @@ public:
     const char *action() const { return "Yield"; }
 };
 
-template <typename T>
-
-void method_call(T *animal)
+class SpeedLimitSign
 {
-    cout << animal->shape() << endl;
-    cout << animal->action() << endl;
+public:
+    const char *shape() const { return "Square"; }
+    const char *action() const { return "Speed Limit 55"; }
+};
+
+// since the signs are siblings with a common interface, each can be called in the same way:
+
+void method_call_0(Sign *sign)
+{
+    cout << sign->shape() << endl;
+    cout << sign->action() << endl;
+}
+
+// this can be templated to accomodate classes that don't inherit fron Sign but meet the interface requirements:
+template <typename T>
+void method_call_1(T *sign)
+{
+    cout << sign->shape() << endl;
+    cout << sign->action() << endl;
 }
 
 void polymorphism_with_templates()
 {
 
     Sign *signs[] = {new StopSign(), new YieldSign()};
-    method_call(signs[0]);
-    method_call(signs[1]);
+    method_call_0(signs[0]);
+    method_call_0(signs[1]);
+
+    SpeedLimitSign *speed_limit_sign_0 = new SpeedLimitSign();
+    method_call_1(signs[0]);
+    method_call_1(signs[1]);
+    method_call_1(speed_limit_sign_0);
 }
 
-// if a common interface is needed for types that don't inherit from the same base (although the signs do), a more complex setup is needed:
+// if a common interface is needed for types that don't inherit from the same base (although some signs do), a more complex setup is needed:
 
 class SignConcept
 {
@@ -67,12 +87,24 @@ public:
     const char *action() const { return YieldSign_1.action(); }
 };
 
+class MySpeedLimitSign : public SignConcept
+{
+    SpeedLimitSign SpeedLimitSign_1;
+
+public:
+    const char *shape() const { return SpeedLimitSign_1.shape(); }
+    const char *action() const { return SpeedLimitSign_1.action(); }
+};
+
 void interface_wrappers()
 {
+    // now all the signs share an interface and can be put in the same array.
+    SignConcept *signs[] = {new MyStopSign(), new MyYieldSign(), new MySpeedLimitSign()};
 
-    SignConcept *signs[] = {new MyStopSign(), new MyYieldSign()};
-    method_call(signs[0]);
-    method_call(signs[1]);
+    method_call_1(signs[0]);
+    method_call_1(signs[1]);
+    method_call_1(signs[2]);
+    method_call_1(signs[3]);
 }
 
 // this works but now a wrapper class is needed for every concrete type. This can be improved by revisiting template polymorphism:
@@ -91,9 +123,9 @@ public:
 
 void wrapper_template()
 {
-    SignConcept *signs[] = {new SignModel(new StopSign()), new SignModel(new YieldSign())};
-    method_call(signs[0]);
-    method_call(signs[1]);
+    SignConcept *signs[] = {new SignModel(new StopSign()), new SignModel(new YieldSign()), new SignModel(new SpeedLimitSign())};
+    method_call_1(signs[0]);
+    method_call_1(signs[1]);
 }
 
 // this can be hidden behind another class to remove interface complexity:
@@ -101,9 +133,9 @@ void wrapper_template()
 
 int main()
 {
-    // polymorphism_with_templates();
-    // interface_wrappers();
-    // wrapper_template();
+    polymorphism_with_templates();
+    interface_wrappers();
+    wrapper_template();
 
     return 0;
 }
