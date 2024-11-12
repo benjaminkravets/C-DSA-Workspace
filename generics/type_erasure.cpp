@@ -104,11 +104,11 @@ void interface_wrappers()
     method_call_1(signs[0]);
     method_call_1(signs[1]);
     method_call_1(signs[2]);
-    method_call_1(signs[3]);
 }
 
 // this works but now a wrapper class is needed for every concrete type. This can be improved by revisiting template polymorphism:
-
+// the sign concept is a concept of a sign shared amoung the concrete types.
+// the sign model models the concrete types as instances of the concept
 template <typename T>
 class SignModel : public SignConcept
 {
@@ -133,9 +133,9 @@ void wrapper_template()
 
 int main()
 {
-    polymorphism_with_templates();
-    interface_wrappers();
-    wrapper_template();
+    // polymorphism_with_templates();
+    // interface_wrappers();
+    // wrapper_template();
 
     return 0;
 }
