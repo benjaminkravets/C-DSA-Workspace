@@ -9,7 +9,7 @@ View info including sections/segments:
 Build up to..
     Preprocessing gcc -E -P
     Compilation gcc -S
-    Assembly gcc -c 
+    Assembly gcc -c (addresses will all be 0 in symtab)
     Linking gcc 
 
 .elf to .hex:
