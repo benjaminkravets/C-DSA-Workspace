@@ -31,5 +31,7 @@ int main(){
     object_0_ptr->func_ptr_1 = &subtract;
 
     printf("%i \r\n", object_0_ptr->func_ptr_0(1,2));
+    printf("%i \r\n", object_0_ptr->func_ptr_1(1,2));
+
 
 }

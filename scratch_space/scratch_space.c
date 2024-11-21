@@ -5,18 +5,10 @@
 #include <string.h>
 #include <ctype.h>
 
-struct A
-{
-    struct B *b;
-};
-
-struct B
-{
-    struct A *a;
-};
 
 int main()
 {
-    struct A g;
-    struct B h;
+    int a = 65;
+
+    printf("%i ", 'A');
 }

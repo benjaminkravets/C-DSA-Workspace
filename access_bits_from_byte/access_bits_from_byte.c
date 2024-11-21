@@ -13,7 +13,10 @@ void print_int_bits(int *ptr)
         printf("%i ", (*ptr >> i) & 1);
     }
 
+    //could be done with a for loop:
     //for(int i = 8; i > 0; i--, printf("%i ", (*ptr >> i) & 1)){}
+
+    //can be done with %b starting in c23
 
     puts("");
 }
@@ -62,10 +65,10 @@ void bit_toggle()
 int main()
 {
 
-    // bit_set();
-    // bit_reset();
-    // bit_toggle();
-    // bit_direct();
+    bit_set();
+    bit_reset();
+    bit_toggle();
+    bit_direct();
 
     return 0;
 }

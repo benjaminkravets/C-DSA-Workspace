@@ -1,16 +1,16 @@
 #include <stdio.h>
 
-__intptr_t get_stack_pointer()
-{
-    register char *stack_ptr asm("sp");
+int add(int a, int b){
+    __asm("addl %1, %0" : "+r" (a) : "rm" (b));
+    return a;
 }
 
-void anotherone()
+int main()
 {
-    printf("%p \r\n", get_stack_pointer());
-}
+    int foo = 1;
 
-void main()
-{
-    anotherone();
+    asm("inc %[IncrementMe]" : [IncrementMe] "+r" (foo));
+
+    printf("%i \r\n", add(1,1));
+
 }

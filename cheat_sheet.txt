@@ -17,3 +17,6 @@ Build up to..
 
 list symbols from object file:
     nm
+gcc break out functions/data in different secsions:
+    gcc -ffunction-sections -c file.c
+    gcc -fdata-sections -c file.c
