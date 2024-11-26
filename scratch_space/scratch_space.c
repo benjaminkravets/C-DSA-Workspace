@@ -8,7 +8,8 @@
 
 int main()
 {
-    int a = 65;
+    int a = 0;
 
-    printf("%i ", 'A');
+    for(;a < 97; a++, printf("i \r\n", a));
+    
 }

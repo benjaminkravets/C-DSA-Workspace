@@ -27,6 +27,10 @@ void vectors()
 
     print_for_loop(vector_0);
 
+    vector_0.insert(vector_0.begin() + 1, 54);
+
+    print_for_loop(vector_0);
+
 }
 
 int main()
