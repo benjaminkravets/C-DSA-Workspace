@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int add(int a, int b){
-    __asm("addl %1, %0" : "+r" (a) : "rm" (b));
+    asm("addl %1, %0" : "+r" (a) : "rm" (b));
     return a;
 }
 

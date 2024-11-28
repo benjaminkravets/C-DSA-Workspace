@@ -1,21 +1,28 @@
-#include <iostream> 
+#include <iostream>
 #include <stack>
 
 using namespace std;
 
-int main() {
-    
-    stack<float> stack;
-    
-    stack.push(1.2);
-    stack.push(6.78);
-    stack.push(-3.4);
-    stack.push(2.79);
+void stacks()
+{
 
-   
-    while (stack.empty() == 0) {
-        cout << stack.top() << endl;
-        stack.pop();
+    stack<int> stack_0;
+    stack_0.push(1);
+    stack_0.push(22);
+    stack_0.push(3);
+    stack_0.push(4);
+
+    // data isn't accessible by iterator
+
+    while (!stack_0.empty())
+    {
+        cout << stack_0.top() << " " << endl;
+        stack_0.pop();
     }
-    
+}
+
+int main()
+{
+    stacks();
+    return 0;
 }

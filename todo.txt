@@ -1,15 +1,9 @@
-x sequential
-associative
-unordered associative
-adaptors
 views
-gcc asm 
 switch and break keyword (and where else break is used)
 disassemble just one function
 vtables (including in C)
 c++ async, future, lock_guard, mutex, packaged task, thread
 observer, singleton, factory, active object, and adapter
-concepts/constraints
 enable_if
 CRTP
 variadic templates and fold expressions
@@ -17,7 +11,6 @@ metafunctions
 modules
 coroutines
 c++ spans
-dumpspecs in gcc?
 python 'map'
 python generators vs list and yield
 pragma pack (push)
