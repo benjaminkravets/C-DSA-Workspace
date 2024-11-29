@@ -8,18 +8,22 @@
 // 1. Many expressions values can share one statement
 void cases_share_code()
 {
-    // printf will be called for 0-2
-    int a = 0;
+    // after a case is matched, execution falls through until a break is reached.
+    // 0 will execute 0 and 1, 2 will execute 2 and default
+    int a = 2;
 
     switch (a)
     {
     case 0:
+        printf("0\r\n");
     case 1:
-    case 2:
-        printf("Hi \r\n");
+        printf("1\r\n");
         break;
+    case 2:
+        printf("2 \r\n");
 
     default:
+        printf("default \r\n");
         break;
     }
 }
@@ -141,7 +145,7 @@ void function_pointer()
 
 int main()
 {
-    // cases_share_code();
+    cases_share_code();
     // increment_and_dereference();
     // multi_char_constants();
     // anonymous_union_in_struct();
@@ -149,5 +153,5 @@ int main()
     // gcc_packed();
     // comma_notation();
     // no_return_func();
-    function_pointer();
+    // function_pointer();
 }

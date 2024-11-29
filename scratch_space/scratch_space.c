@@ -6,10 +6,8 @@
 #include <ctype.h>
 
 
+
 int main()
 {
-    int a = 0;
 
-    for(;a < 97; a++, printf("i \r\n", a));
-    
 }

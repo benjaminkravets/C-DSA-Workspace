@@ -1,6 +1,3 @@
-views
-switch and break keyword (and where else break is used)
-disassemble just one function
 vtables (including in C)
 c++ async, future, lock_guard, mutex, packaged task, thread
 observer, singleton, factory, active object, and adapter
