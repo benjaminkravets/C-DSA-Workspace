@@ -17,6 +17,7 @@ void print_int_bits(int *ptr)
     //for(int i = 8; i > 0; i--, printf("%i ", (*ptr >> i) & 1)){}
 
     //can be done with %b starting in c23
+    //printf("%b \r\n", *ptr);
 
     puts("");
 }

@@ -111,7 +111,8 @@
         "stdio.h": "c",
         "main.h": "c",
         "stm32f7xx_hal.h": "c",
-        "stm32f7xx_hal_conf.h": "c"
+        "stm32f7xx_hal_conf.h": "c",
+        "ctype.h": "c"
     },
     "cmake.sourceDirectory": "/home/ben/C-DSA-Workspace/freertos/FreeRTOSv202212.01/FreeRTOS-Plus/Source/Application-Protocols/coreHTTP/test"
 }

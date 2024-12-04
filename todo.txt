@@ -1,15 +1,15 @@
-vtables (including in C)
 c++ async, future, lock_guard, mutex, packaged task, thread
-observer, singleton, factory, active object, and adapter
+observer, singleton, factory, active object, fascade, pimpl, and adapter
 enable_if
 CRTP
+dependent names and use of typename
 variadic templates and fold expressions
-metafunctions
 modules
 coroutines
 c++ spans
 python 'map'
 python generators vs list and yield
+python partials
 pragma pack (push)
 
 

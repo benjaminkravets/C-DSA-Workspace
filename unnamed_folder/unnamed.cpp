@@ -234,6 +234,18 @@ void RAII()
     unique_ptr<MemoryBlock> block_ptr_0 = make_unique<MemoryBlock>(20);
 }
 
+//13. Metafunctions allow "named return values" (value in this case) and are 
+// used in remove_pointer and is_same
+template <int num>
+struct plus_one {
+    static const int value = num + 1;
+};
+
+
+void metafunctions(){
+    cout << plus_one<1>::value << endl;
+}
+
 int main()
 {
     // member_initializer();
@@ -247,7 +259,7 @@ int main()
     // invoke_and_apply();
     // default_copy_direct_uniform();
     // SFINAE();
-    RAII();
-
+    // RAII();
+    metafunctions();
     return 0;
 }

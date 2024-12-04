@@ -129,9 +129,9 @@ int main()
    // MemoryBlock B = move(A);
 
    //use move assignment operator
-   // MemoryBlock A(10);
-   // MemoryBlock B(10);
-   // B = move(A);
+   MemoryBlock A(10);
+   MemoryBlock B(10);
+   B = move(A);
 
 
    

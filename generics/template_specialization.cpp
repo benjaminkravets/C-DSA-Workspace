@@ -9,6 +9,7 @@ void print(T arr[], int size)
     cout << "General function" << endl;
 }
 
+//full specialization for char type
 template <>
 void print<char>(char arr[], int size)
 {
@@ -25,6 +26,7 @@ public:
     }
 };
 
+//full specialization for int type
 template <>
 class A<int>
 {

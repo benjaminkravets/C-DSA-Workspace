@@ -6,13 +6,20 @@
 #include <queue>
 #include <ranges>
 #include <vector>
-
-#include <span>
-#include <vector>
 #include <iostream>
 
+using namespace std;
 
-int main() {
 
-    
+
+template <typename T>
+void foo(){
+    cout << is_floating_point<T>::value << endl;
+}
+
+int main()
+{
+    metafunctions();
+    foo<float>();
+
 }
