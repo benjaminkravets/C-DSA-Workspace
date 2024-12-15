@@ -1,4 +1,4 @@
-c++ async, future, lock_guard, mutex, packaged task, thread
+c++ lock_guard https://stackoverflow.com/a/35252160
 observer, singleton, factory, active object, fascade, pimpl, and adapter
 enable_if
 CRTP
@@ -10,6 +10,9 @@ c++ spans
 python 'map'
 python generators vs list and yield
 python partials
+python ctype
+python dunderes
 pragma pack (push)
+#error
 
 

@@ -7,19 +7,9 @@
 #include <ranges>
 #include <vector>
 #include <iostream>
+#include <thread>
+#include <mutex>
+#include <chrono>
 
 using namespace std;
 
-
-
-template <typename T>
-void foo(){
-    cout << is_floating_point<T>::value << endl;
-}
-
-int main()
-{
-    metafunctions();
-    foo<float>();
-
-}

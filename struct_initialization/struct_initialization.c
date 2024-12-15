@@ -70,6 +70,8 @@ int main()
 
     printf("%i, %c, %f, \r\n", type_3_instance.a, type_3_instance.b, type_3_instance.c);
 
+    // use designated initializer:
+
     struct_type_2_type type_2_instance_3 = {
         .a = 5,
         .b = 'e',

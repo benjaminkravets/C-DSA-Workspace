@@ -127,25 +127,94 @@ void __attribute__((__noreturn__)) no_return_func()
 
 // 9. function pointers
 
-void jump_to()
+void jump_to(int a)
 {
-    printf("fn1 called \n");
+    printf("fn1 called %i \r\n", a);
 }
 
 void function_pointer()
 {
+    // single function pointer:
     void *fn1_address = &jump_to;
 
     printf("fn1 at %p \n", fn1_address);
 
-    void (*func_ptr)(void) = (void (*)())fn1_address;
+    void (*func_ptr)() = (void (*)())fn1_address;
 
-    func_ptr();
+    func_ptr(1);
+
+    // jump table:
+
+    void (*(jmp_table[3]))() = {&jump_to, &jump_to, &jump_to};
+
+    jmp_table[0](2);
+    jmp_table[1](3);
+    jmp_table[2](4);
+}
+
+// 10. a compound literal exporession creates and initializes an unnamed object
+struct shape
+{
+    char *color;
+    int sides;
+};
+
+void print_struct(struct shape *foo)
+{
+    printf("%s \r\n", foo->color);
+    printf("%i \r\n", foo->sides);
+}
+void compound_literals()
+{
+    struct shape bar = {"blue", 4};
+    print_struct(&bar);
+    // the compound literal (a type and initializer) are passed instead of a temporary struct
+    print_struct(&(struct shape){.color = "red", .sides = 3});
+}
+
+// 11. designated intialization allows setting only certain elements of
+// an array or members of a struct.
+
+struct A_2
+{
+    int a;
+    char b;
+    int c;
+};
+
+void designated_initialization()
+{
+    int foo[5] = {[2] = 7, [4] = 5};
+    // int foo[] = { [0 ... 9] = 1, [10 ... 30] = 2, [31] = 3 };
+
+    for (int i = 0; i < 5; i++)
+    {
+        printf("%i ", foo[i]);
+    }
+
+    printf("\r\n");
+
+    struct A_2 a = {.c = 1};
+
+    printf("%i %c %i\r\n", a.a, a.b, a.c);
+}
+// 12. inline assembly
+int add(int a, int b)
+{
+    asm("addl %1, %0" : "+r"(a) : "rm"(b));
+    return a;
+}
+
+void inline_assembly()
+{
+    int foo = 1;
+    asm("inc %[IncrementMe]" : [IncrementMe] "+r"(foo));
+    printf("%i \r\n", add(1, 1));
 }
 
 int main()
 {
-    cases_share_code();
+    // cases_share_code();
     // increment_and_dereference();
     // multi_char_constants();
     // anonymous_union_in_struct();
@@ -154,4 +223,7 @@ int main()
     // comma_notation();
     // no_return_func();
     // function_pointer();
+    // compound_literals();
+    // designated_initialization();
+    inline_assembly();
 }

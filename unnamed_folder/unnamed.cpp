@@ -234,16 +234,26 @@ void RAII()
     unique_ptr<MemoryBlock> block_ptr_0 = make_unique<MemoryBlock>(20);
 }
 
-//13. Metafunctions allow "named return values" (value in this case) and are 
-// used in remove_pointer and is_same
+// 13. Metafunctions allow "named return values" at compile time and are
+// used in remove_pointer and is_same. Constexpr members allow returning
+// a value while typedefs allow returning a type.
+
 template <int num>
-struct plus_one {
+struct plus_one
+{
     static const int value = num + 1;
 };
 
+struct get_type
+{
+    typedef uint32_t u32;
+};
 
-void metafunctions(){
+void metafunctions()
+{
     cout << plus_one<1>::value << endl;
+    get_type::u32 x = 5;
+    cout << x << endl;
 }
 
 int main()
