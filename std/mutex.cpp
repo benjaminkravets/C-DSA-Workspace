@@ -13,9 +13,13 @@ void func0()
     {
         this_thread::sleep_for(chrono::milliseconds(200));
 
-        mutex_0.lock();
+        // mutex_0.lock();
+        // cout << "func0 got the mutex \r\n";
+        // mutex_0.unlock();
+
+        lock_guard<mutex> guard(mutex_0);
         cout << "func0 got the mutex \r\n";
-        mutex_0.unlock();
+
     }
 }
 
@@ -25,9 +29,12 @@ void func1()
     {
         this_thread::sleep_for(chrono::milliseconds(200));
 
-        mutex_0.lock();
+        // mutex_0.lock();
+        // cout << "func1 got the mutex \r\n";
+        // mutex_0.unlock();
+
+        lock_guard<mutex> guard(mutex_0);
         cout << "func1 got the mutex \r\n";
-        mutex_0.unlock();
     }
 }
 
