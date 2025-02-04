@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdarg.h>
 
 // 1. Many expressions values can share one statement
 void cases_share_code()
@@ -212,6 +213,28 @@ void inline_assembly()
     printf("%i \r\n", add(1, 1));
 }
 
+// 13. vprintf and variadic funcitons
+
+void use_vprintf(char *fmt, ...);
+char fmt[] = "%s %s %s %s \n";
+
+void use_vprintf(char *fmt, ...)
+{
+  va_list arg_ptr;
+  //va_start accesses a variable arg list, gets arguments up to fmt- the last fixed variable
+  va_start(arg_ptr, fmt);
+  printf("%s \r\n", arg_ptr);
+  //vprintf can be passed a variable number of strings like printf, but this can be passed as a va_list
+  vprintf(fmt, arg_ptr);
+  //resets ptr to null, must be called before return
+  va_end(arg_ptr);
+
+}
+
+void pass_variadic() {
+    use_vprintf(fmt, "Hello", "world", "Goodbye", "world");
+}
+
 int main()
 {
     // cases_share_code();
@@ -225,5 +248,6 @@ int main()
     // function_pointer();
     // compound_literals();
     // designated_initialization();
-    inline_assembly();
+    // inline_assembly();
+    pass_variadic();
 }
