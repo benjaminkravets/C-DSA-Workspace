@@ -1,5 +1,5 @@
-array with overloaded index operator for no out of bounds accesses
 observer, singleton, factory, active object, fascade, and adapter
+concepts constraints
 enable_if
 CRTP
 dependent names and use of typename

@@ -1,26 +1,51 @@
-#include <iostream>
-#include <bitset>
+#include <cstddef>
+#include <concepts>
+#include <functional>
 #include <string>
-#include <array>
-#include <cassert>
+#include <vector>
+
+#include <iostream>
 
 using namespace std;
 
-template<typename T, std::size_t Z, std::size_t Y, std::size_t X>
-struct Array3d
+template <typename T>
+class NumberFunctions
 {
-    std::array<T, X * Y * Z> m{};
- 
-    constexpr T& operator[](std::size_t z, std::size_t y, std::size_t x) // C++23
+public:
+    void add()
     {
-        assert(x < X and y < Y and z < Z);
-        return m[z * Y * X + y * X + x];
+        T &underlying = static_cast<T &>(*this);
+        underlying.setValue(underlying.getValue() + 1);
+    }
+    void subtract()
+    {
+        T &underlying = static_cast<T &>(*this);
+        underlying.setValue(underlying.getValue() - 1);
     }
 };
- 
+
+// Rather than Integer being in a "is a" relationship with NumberFunctions, NumberFunctions is only adding functionality
+class Integer : public NumberFunctions<Integer>
+{
+public:
+    int value;
+    Integer(int z) : value(z) {}
+    int getValue() { return value; }
+    void setValue(int z) { value = z; }
+};
+
+// in CRTP, the inheritance clearly shows that the NumberFunctions interface is available vs having it in a header file
+class Float : public NumberFunctions<Integer>
+{
+public:
+    int value;
+    Float(int z) : value(z) {}
+    float getValue() { return value; }
+    void setValue(float z) { value = z; }
+};
+
 int main()
 {
-    Array3d<int, 4, 3, 2> v;
-    v[3, 2, 1] = 42;
-    std::cout << "v[3, 2, 1] = " << v[3, 2, 1] << '\n';
+
+    return 0;
 }
