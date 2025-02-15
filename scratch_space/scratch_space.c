@@ -1,52 +1,36 @@
 // C program to show thread functions 
   
-#include <pthread.h> 
-#include <stdio.h> 
-#include <stdlib.h> 
-  
-void* func(void* arg) 
-{ 
-    // detach the current thread 
-    // from the calling thread 
-    pthread_detach(pthread_self()); 
-  
-    printf("Inside the thread\n"); 
-  
-    // exit the current thread 
-    pthread_exit(NULL); 
-} 
-  
-void fun() 
-{ 
-    pthread_t ptid; 
-  
-    // Creating a new thread 
-    pthread_create(&ptid, NULL, &func, NULL); 
-    printf("This line may be printed"
-           " before thread terminates\n"); 
-  
-    // The following line terminates 
-    // the thread manually 
-    // pthread_cancel(ptid); 
-  
-    // Compare the two threads created 
-    if(pthread_equal(ptid, pthread_self())) 
-        printf("Threads are equal\n"); 
-    else
-        printf("Threads are not equal\n"); 
-  
-    // Waiting for the created thread to terminate 
-    pthread_join(ptid, NULL); 
-  
-    printf("This line will be printed"
-           " after thread ends\n"); 
-  
-    pthread_exit(NULL); 
-} 
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdint.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdarg.h>
+
+char fmt[] = "%s %s %s %s \n";
+
+void use_vprintf(char *fmt, ...)
+{
+    va_list arg_ptr;
+    // va_start accesses a variable arg list, gets arguments up to fmt- the last fixed variable
+    va_start(arg_ptr, fmt);
+    char * first = va_arg(arg_ptr, char *);
+    printf("%s \r\n", first);
+    // vprintf can be passed a variable number of strings like printf, but this can be passed as a va_list
+    //vprintf(fmt, arg_ptr);
+    // resets ptr to null, must be called before return
+    va_end(arg_ptr);
+}
+
+void pass_variadic()
+{
+    use_vprintf(fmt, "Hello", "world", "Goodbye", "world");
+}
   
 // Driver code 
 int main() 
 { 
-    fun(); 
+    pass_variadic();
     return 0; 
 } 

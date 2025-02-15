@@ -2,29 +2,15 @@ from itertools import permutations, product
 from multiprocessing import Pool
 
 
-def f(q):
-	print(q)
+import matplotlib.pyplot as plt
 
+# Sample data
+x = [1, 2, 3, 4, 5]
+y = [1, 4, 9, 16, 25]
 
+plt.plot(x, y)
 
-#blue_indexes = [i for i, sublist in enumerate(data) if sublist[0] == 'blue']
+# Add a vertical line at x=3
+plt.axvline(x=3, color='r', linestyle='--')
 
-#print(blue_indexes)
-
-
-# if __name__ == "__main__":
-# 	data = [['blue', 1],
-# 			['yellow', 2],
-# 			['0010', 2],
-# 			['orange', 5],
-# 			['blue', 7],
-# 			['red', 13]]
-# 	data = [i for i in range(100)]
-# 	print(data)
-
-# 	with Pool(5) as p:
-# 			p.map(f, data)
-	
-a = 2
-
-print([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15][::1])
+plt.show()
