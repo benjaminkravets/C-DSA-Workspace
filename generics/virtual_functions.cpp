@@ -1,8 +1,3 @@
-#include <cstddef>
-#include <concepts>
-#include <functional>
-#include <string>
-#include <vector>
 #include <iostream>
 
 using namespace std;
@@ -11,7 +6,7 @@ class A
 {
 public:
     void SayHello() { cout << "Hello world" << endl; }
-    // with 'virtual', an B pointer pointing to an A class calls the correct (overridden) function, otherwise, it calls the base method.
+    // with 'virtual', calling a child class instance method through a base class pointer calls the correct (overridden) method, otherwise it calls the parent method.
     virtual void SayBye() { cout << "Goodbye world" << endl; }
 };
 
