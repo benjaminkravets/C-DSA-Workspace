@@ -7,27 +7,22 @@
 
 using namespace std;
 
-class A
-{
-public:
-    void SayHello() { cout << "Hello world" << endl; }
-    // with 'virtual', an B pointer pointing to an A class calls the correct (overridden) function, otherwise, it calls the base method.
-    virtual void SayBye() { cout << "Goodbye world" << endl; }
-};
 
-class B : public A
-{
-public:
-    void SayBye() { cout << "Goodbye, fairwell, and amen" << endl; }
-};
+template <class T,
+         typename std::enable_if<std::is_integral<T>::value,
+                                 T>::type* = nullptr>
+void do_stuff(T& t) {
+  std::cout << "do_stuff integral\n";
+    // an implementation for integral types (int, char, unsigned, etc.)
+}
 
-int main()
-{
+template <class T,
+          typename std::enable_if<std::is_class<T>::value,
+                                  T>::type* = nullptr>
+void do_stuff(T& t) {
+    // an implementation for class types
+}
 
-    B b1;
-    A &b_ptr = b1;
+int main() {
 
-    b_ptr.SayBye();
-
-    return 0;
 }

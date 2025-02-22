@@ -7,22 +7,31 @@
 
 using namespace std;
 
+// https://www.fluentcpp.com/2017/05/16/what-the-crtp-brings-to-code/
+
 // in CRTP, rather than the base class being the interface and the derived class the implementation,
 //  the derived class offers an interface to the base class.
 
+// CRTP struct factors out static_cast
 template <typename T>
-class NumberFunctions
+struct CRTP
+{
+public:
+    T &underlying() { return static_cast<T &>(*this); }
+    T const &underlying() const { return static_cast<T const &>(*this); }
+};
+
+template <typename T>
+class NumberFunctions : public CRTP<T>
 {
 public:
     void add()
     {
-        T &underlying = static_cast<T &>(*this);
-        underlying.getValue(underlying.getValue() + 1);
+        this->underlying().setValue(this->underlying().getValue() + 1);
     }
     void subtract()
     {
-        T &underlying = static_cast<T &>(*this);
-        underlying.setValue(underlying.getValue() - 1);
+        this->underlying().setValue(this->underlying().getValue() - 1);
     }
 };
 
@@ -37,19 +46,19 @@ public:
     void setValue(int z) { value = z; }
 };
 
-// in CRTP, the inheritance clearly shows that the NumberFunctions interface is available vs having it in a header file
-// Float (and Integer) are guarunteed to work with NumberFunctions
+// CRTP is more readable, the inheritance clearly shows that the NumberFunctions interface is available vs having it in a header file
+// Float (and Integer) are guaranteed to work with NumberFunctions
 class Float : public NumberFunctions<Float>
 {
 public:
-    int value;
-    Float(int z) : value(z) {}
+    float value;
+    Float(float z) : value(z) {}
     void round() {}
     float getValue() { return value; }
     void setValue(float z) { value = z; }
 };
 
-// CRTP can also be used for static interfaces, returning to the base-interface derived-implementation ordering.
+// less often, CRTP can also be used for static interfaces, returning to the base-interface derived-implementation ordering.
 
 template <typename T>
 class Amount

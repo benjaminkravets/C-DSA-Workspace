@@ -1,7 +1,4 @@
-observer, singleton, factory, active object, fascade, and adapter
-concepts constraints
 enable_if
-CRTP
 dependent names and use of typename
 variadic templates and fold expressions
 modules
