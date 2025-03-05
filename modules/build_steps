@@ -1,0 +1,4 @@
+rm -r gcm.cache/ ; rm *.o ; rm *.out ;
+g++ -std=c++20 -c flash_module.cpp -fmodules-ts -o flash_module.o;
+g++ -std=c++20 -c main.cpp -fmodules-ts -o main.o ;
+g++ -std=c++20 main.o flash_module.o ;

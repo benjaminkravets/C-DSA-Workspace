@@ -14,9 +14,8 @@ int i_HelloWorld() {
   
 int main() 
 { 
-    int (*a)();
-    a = i_HelloWorld;
-    a();
+    uint8_t v = -1;
+    printf("%i \r\n", v);
 
     return 0; 
 } 
