@@ -58,6 +58,18 @@ void fonzie(T a, typename enable_if<is_floating_point<T>::value, int>::type = 0)
     cout << "float" << endl;
 }
 
+// enable_if can also be used to disqualify function templates based on return types
+// here, if the condition is true the return type will be an int, otherwise it's a float
+template <bool Condition>
+typename enable_if<Condition, int>::type bar() {
+    return 0;
+}
+
+template <bool Condition>
+typename enable_if<!Condition, float>::type bar() {
+    return 0;
+}
+
 int main()
 {
     // foo<true>(42);
@@ -67,8 +79,11 @@ int main()
     // bar(1.2);
     // bar("Hello world");
 
-    fonzie(1);
-    fonzie(1.2);
+    // fonzie(1);
+    // fonzie(1.2);
+
+    cout << typeid(bar<true>()).name() << endl;
+    cout << typeid(bar<false>()).name() << endl;
 
     return 0;
 }

@@ -11,7 +11,7 @@ void cases_share_code()
 {
     // after a case is matched, execution falls through until a break is reached.
     // 0 will execute 0 and 1, 2 will execute 2 and default
-    int a = 2;
+    int a = 0;
 
     switch (a)
     {
@@ -234,9 +234,27 @@ void pass_variadic()
     use_vprintf(fmt, "Hello", "world", "Goodbye", "world");
 }
 
+// 14. bit bits
+
+void bit_bits() {
+    //setting an unsigned to -1 will give it it's maximum value
+    uint8_t a = -1; 
+    printf("max uint8_t: %u \r\n", a);
+
+    //octal numbers can be delared with prefix 0
+    printf("%i %i %i \r\n", 010, 011, 012); 
+
+    //in a signed number, the first bit is the sign bit (1 for negative); there are 31 bits for the magnitude
+    int32_t b = -1234; 
+
+    for(int i = 31; i >= 0; i--) {
+        printf("%i ", 1 & ((uint32_t)b >> i));
+    }
+}
+
 int main()
 {
-    // cases_share_code();
+    //cases_share_code();
     // increment_and_dereference();
     // multi_char_constants();
     // anonymous_union_in_struct();
@@ -248,5 +266,6 @@ int main()
     // compound_literals();
     // designated_initialization();
     // inline_assembly();
-    pass_variadic();
+    // pass_variadic();
+    bit_bits();
 }
