@@ -6,7 +6,7 @@ maxing out
 pthreads
 predicates
 condition variables
-enable_if
+
 dependent names and use of typename
 variadic templates and fold expressions
 modules
@@ -17,11 +17,19 @@ python generators vs list and yield
 python partials
 python ctype
 python dunderes
-pragma pack (push)
+pragma
+pragmas
+ pack (push)
 #error
 
+snprintf
 
 range based for loop
 std array
 named initialization to structs unnamed
 varargs getops
+
+
+multiple inheritance
+
+

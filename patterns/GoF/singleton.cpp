@@ -1,6 +1,5 @@
 #include <iostream>
 
-
 using namespace std;
 
 // From "Making Embedded Systems" (White)

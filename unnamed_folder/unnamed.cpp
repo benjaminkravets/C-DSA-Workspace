@@ -256,6 +256,55 @@ void metafunctions()
     cout << x << endl;
 }
 
+// 14. Using constexpr
+//  when a function is constexpr, calling it can result in a constant expression
+//  can still be used at runtime if called with non-constant arguments
+//  if compile time evaluation is required, use consteval
+constexpr int multiplier(int a, int b)
+{
+    return a * b;
+}
+
+void using_constexpr()
+{
+    // const in a variable allows runtime initialization
+    int a = 1;
+    const int b = a;
+    // constexpr variables must be initialized at compile time
+    // this isn't allowed
+    // constexpr int c = a;
+    // this is allowed, the initialization value can be known at compile time.
+    constexpr int d = 5;
+    constexpr int e = d;
+
+    // multiplier satisfies the constexpr requirement here
+    constexpr int f = multiplier(1, 2);
+}
+
+// 15. statics in classes
+class E
+{
+public:
+    // class static variables are shared by all objects of a class
+    static int z;
+
+    // class static methods can be called without an object instance and
+    // can only access static variables. the 'this' pointer can't be used.
+    static int Afunction()
+    {
+        return z;
+    }
+};
+
+// class static variables are initialized outside the class
+int E::z = 3;
+
+void class_statics()
+{
+    E x;
+    cout << E::Afunction() << E::z << endl;
+}
+
 int main()
 {
     // member_initializer();
@@ -270,6 +319,8 @@ int main()
     // default_copy_direct_uniform();
     // SFINAE();
     // RAII();
-    metafunctions();
+    // metafunctions();
+    // using_constexpr();
+    class_statics();
     return 0;
 }

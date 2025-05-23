@@ -72,7 +72,7 @@ void anonymous_union_in_struct()
     printf("%i", a.b);
 }
 
-// 5. specify minimum array size (may only warn)
+// 5. specify minimum array size (may only warn). This might not be enforced and isn't commonly used.
 void minimum_array_size(int a[static 10])
 {
 }
@@ -236,25 +236,96 @@ void pass_variadic()
 
 // 14. bit bits
 
-void bit_bits() {
-    //setting an unsigned to -1 will give it it's maximum value
-    uint8_t a = -1; 
+void bit_bits()
+{
+    // setting an unsigned to -1 will give it it's maximum value
+    uint8_t a = -1;
     printf("max uint8_t: %u \r\n", a);
 
-    //octal numbers can be delared with prefix 0
-    printf("%i %i %i \r\n", 010, 011, 012); 
+    // octal numbers can be delared with prefix 0
+    printf("%i %i %i \r\n", 010, 011, 012);
 
-    //in a signed number, the first bit is the sign bit (1 for negative); there are 31 bits for the magnitude
-    int32_t b = -1234; 
+    // in a signed number, the first bit is the sign bit (1 for negative); there are 31 bits for the magnitude
+    int32_t b = -1234;
 
-    for(int i = 31; i >= 0; i--) {
+    for (int i = 31; i >= 0; i--)
+    {
         printf("%i ", 1 & ((uint32_t)b >> i));
     }
 }
 
+// 15. Unaligned access
+//  may not be allowed depending on architecture
+uint32_t unaligned_access(void)
+{
+    uint8_t buffer[6] = {0xAA, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF};
+    uint8_t i = 1;
+    uint32_t val_BB_to_EE = *((uint32_t *)(&buffer[i]));
+
+    printf("%i \r\n", val_BB_to_EE);
+    printf("%i \r\n", 0xEEDDCCBB);
+}
+
+// 16. Floats
+//  https://kyledewey.github.io/comp122-fall17/lecture/week_2/floating_point_interconversions.html
+
+void floats()
+{
+
+    union
+    {
+        float a;
+        uint32_t b;
+    } float_bits;
+
+    printf("\r\ns e e e e e e e e m m m m m m m m m m m m m m m m m m m m m m m\r\n");
+
+    // the stored 8-bit exponent is the actual exponent + 127
+    float_bits.a = .75;
+
+    for (int i = 31; i >= 0; i--)
+    {
+        printf("%i ", 1 & (float_bits.b >> i));
+    }
+    printf("\r\n");
+}
+
+// 17. Enable/disable using #define
+
+#define LOGGING_ENABLE (1)
+
+#if LOGGING_ENABLE
+#define log(level, code) logger(level, code);
+#else
+#define log(level, code)
+#endif
+
+void logger(int level, int code)
+{
+    printf("Logged \r\n");
+}
+
+// 18. Bit fields
+struct
+{
+    uint32_t a : 1;
+    uint32_t b : 1;
+    uint32_t c : 1;
+
+} flags;
+
+void bitfields()
+{
+    flags.a = 1;
+    flags.b = 0;
+    flags.c = 1;
+    printf("%i \r\n", sizeof(flags));
+    printf("%b \r\n", flags);
+}
+
 int main()
 {
-    //cases_share_code();
+    // cases_share_code();
     // increment_and_dereference();
     // multi_char_constants();
     // anonymous_union_in_struct();
@@ -267,5 +338,9 @@ int main()
     // designated_initialization();
     // inline_assembly();
     // pass_variadic();
-    bit_bits();
+    // bit_bits();
+    // unaligned_access();
+    // floats();
+    // log(1, 2);
+    bitfields();
 }

@@ -1,0 +1,45 @@
+can "return" array by value by wrapping it in a struct or by giving array static storage duration
+neither are great ideas.
+
+typedef struct {
+    int hi[3];
+} gpio_struct;
+
+gpio_struct gpio_conf_init() {
+    gpio_struct A = {{1,2,3}};
+    return A;
+}
+gpio_struct Z = gpio_conf_init();
+printf("%i \r\n", Z.hi[1]);
+
+char * ReturnArrayByValue() {
+    static char a[11] = "Hello world";
+    return a;
+}
+
+the 'pack' pragma places memory one after another in memory
+roughly equivalent to __attribute__((packed, aligned(n)))
+struct A
+{
+    char AA;
+    uint32_t BB;
+    char CC;
+};
+
+#pragma pack(2)
+
+struct B
+{
+    char AA;
+    uint32_t BB;
+    char CC;
+};
+
+int main()
+{
+    struct A a;
+    printf("%i %i %i \r\n", offsetof(struct A, AA), offsetof(struct A, BB), offsetof(struct A, CC));
+    printf("%i %i %i \r\n", offsetof(struct B, AA), offsetof(struct B, BB), offsetof(struct B, CC));
+
+    printf("%i \r\n", sizeof(a));
+}
