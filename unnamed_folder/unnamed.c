@@ -5,6 +5,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdarg.h>
+#include <iso646.h>
 
 // 1. Many expressions values can share one statement
 void cases_share_code()
@@ -323,6 +324,20 @@ void bitfields()
     printf("%b \r\n", flags);
 }
 
+// 19. <iso646.h>
+
+void iso646() {
+    if (1 and 1) {
+        printf("and \r\n");
+    }
+    if (1 xor 1) {
+        printf("xor \r\n");
+    }
+    if (1 not_eq 0) {
+        printf("not_eq \r\n");
+    }
+}
+
 int main()
 {
     // cases_share_code();
@@ -342,5 +357,6 @@ int main()
     // unaligned_access();
     // floats();
     // log(1, 2);
-    bitfields();
+    // bitfields();
+    iso646();
 }
