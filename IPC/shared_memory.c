@@ -13,7 +13,7 @@ int main()
     int system_page_size = sysconf(_SC_PAGE_SIZE);
     int *shared = mmap(
         NULL,                               // specify virtual address of memory to mao or leave NULL for kernel to decide
-        2 * system_page_size,                  // length of allocation
+        2 * system_page_size,               // length of allocation
         PROT_READ | PROT_WRITE | PROT_EXEC, // specify protections
         MAP_ANONYMOUS | MAP_SHARED,         // cusomtizations- MAP_ANONYMOUS says pages aren't backed by any file (like in malloc), MAP_SHARED or MAP_PRIVATE could specify whether pages are shared across processes or owned by one
         -1,                                 // file descriptor; -1 since mapping is anonymous
@@ -31,6 +31,7 @@ int main()
     if (pid == -1)
     {
         printf("woops");
+        exit(1);
     }
     else if (pid == 0)                      // fork returns 0 for child process
     {
