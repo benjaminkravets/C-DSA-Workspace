@@ -5,7 +5,7 @@
 #include <sys/types.h>
 #include <string.h>
 
-// pipes are unidirectional byte stream between processes implementated as a FIFO in the kernel. Used in pipe on command line.
+// pipes are unidirectional byte stream between processes implementated as a FIFO in the kernel. Used in pipe on command line. Anonymous pipes are destroyed when processes with associated file descriptors terminate.
 
 int main()
 {
