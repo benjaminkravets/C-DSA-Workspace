@@ -6,6 +6,8 @@
 #include <mqueue.h>
 #include <string.h>
 
+//use a message queue for asynchronous communication, message prioritization, and discrete messages
+
 int main()
 {
 
@@ -54,12 +56,12 @@ int main()
         mqd_t mqd;
         struct mq_attr attr;
 
-        attr.mq_flags = 0;
-        attr.mq_maxmsg = 10;
-        attr.mq_msgsize = 32;
-        attr.mq_curmsgs = 0;
+        attr.mq_flags = 0;              //may be O_NONBLOCK
+        attr.mq_maxmsg = 10;            //max number of messages
+        attr.mq_msgsize = 32;           //max message size
+        attr.mq_curmsgs = 0;            //currently queued messages
 
-        int priority = 10;
+        int priority = 10;             
 
         char send_buffer[32] = "hi";
 
