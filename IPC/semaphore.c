@@ -30,7 +30,7 @@ int main()
         sem_t * child_semaphore = sem_open(NAME, 0);
         for (int i = 0 ; i < 2; i++) {
             sem_wait(child_semaphore);
-            printf("sem give \r\n");
+            printf("sem take \r\n");
         }        
         printf("child %i \r\n", getpid());
         exit(0);
@@ -39,9 +39,9 @@ int main()
     {
         sem_t * parent_semaphore = sem_open(NAME, O_CREAT, 0660, 0);
         for (int i = 0 ; i < 2; i++) {
+            sleep(1);
             sem_post(parent_semaphore);
             printf("sem give \r\n");
-            sleep(1);
         }
 
         int child_status;
