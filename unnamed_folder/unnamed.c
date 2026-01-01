@@ -338,6 +338,25 @@ void iso646() {
     }
 }
 
+// 20. swap by xor
+
+void xor_swap(int *a, int *b)
+{
+    if (a == b)
+        return; // no overlapping pointers
+
+    *a ^= *b;
+    *b ^= *a;
+    *a ^= *b;
+}
+
+void swap_by_xor(){
+    int a = 1;
+    int b = 2;
+    xor_swap(&a, &b);
+    printf("%i %i \r\n", a, b);
+}
+
 int main()
 {
     // cases_share_code();
@@ -358,5 +377,6 @@ int main()
     // floats();
     // log(1, 2);
     // bitfields();
-    iso646();
+    // iso646();
+    swap_by_xor();
 }
