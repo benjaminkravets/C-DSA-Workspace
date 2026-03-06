@@ -8,5 +8,7 @@
 /windiag
 /didier
 /testssl
+/cmake
+/venv
 
 *.out
