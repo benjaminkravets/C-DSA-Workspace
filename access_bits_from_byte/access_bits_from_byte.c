@@ -47,7 +47,7 @@ void bit_reset()
 {
     int a = 0b11111111;
 
-    // reset bit three from right by ANDing with bitwise NOT of desired bit
+    // reset bit three from right by ANDing with bitwise NOT (or complement) of desired bit
     a &= ~(1 << 3);
 
     print_int_bits(&a);

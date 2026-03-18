@@ -30,7 +30,7 @@ public:
     }
     ~Array()
     {
-        delete ptr;
+        delete[] ptr;
     }
 };
 

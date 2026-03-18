@@ -28,7 +28,7 @@ int main()
     {
         sleep(1);
         sem_t * child_semaphore = sem_open(NAME, 0);
-        for (int i = 0 ; i < 2; i++) {
+        for (int i = 0 ; i < 10; i++) {
             sem_wait(child_semaphore);
             printf("sem take \r\n");
         }        
@@ -38,7 +38,7 @@ int main()
     else                                    // fork returns PID of new process for parent process
     {
         sem_t * parent_semaphore = sem_open(NAME, O_CREAT, 0660, 0);
-        for (int i = 0 ; i < 2; i++) {
+        for (int i = 0 ; i < 10; i++) {
             sleep(1);
             sem_post(parent_semaphore);
             printf("sem give \r\n");

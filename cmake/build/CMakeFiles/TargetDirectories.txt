@@ -1,3 +1,0 @@
-/home/ben/C-DSA-Workspace/cmake/build/CMakeFiles/HelloWorld.dir
-/home/ben/C-DSA-Workspace/cmake/build/CMakeFiles/edit_cache.dir
-/home/ben/C-DSA-Workspace/cmake/build/CMakeFiles/rebuild_cache.dir

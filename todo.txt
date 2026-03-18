@@ -1,35 +1,83 @@
+zephyr shell
+zephyr state machine
+state machine vs alternatives like switch case
+HSM (qp)
+zephyr pin mapping and device controller
 
-
+lock free programming
+reverse bits in byte
 maxing out 
-
-
+steps to run ELF file
 pthreads
 predicates
 condition variables
-
+assign struct array element after initialization
+struct declarations
+setjump longjump
+custom new()
+polymorphism
+rtti
+test framework
+cpp inline globals
+what happens when assigning from return of void return function
 dependent names and use of typename
 variadic templates and fold expressions
 modules
-coroutines
+coroutines (how they work low level too)
 c++ spans
+c++ automatic destructor call
+using automatic descructor on function exit to free mutex in locker class
 python 'map'
 python generators vs list and yield
 python partials
 python ctype
 python dunderes
-pragma
+python decorators
+python multiline statements
+pragma for making sure no heap is used
 pragmas
  pack (push)
 #error
+struct declarations
+C scientific notation
 
+control loop delay/oscillation
+
+
+why this is valid typedef void (*mg_event_handler_t)(struct mg_connection *, int, void *);
+
+using xor to flip flop variables with no temp variable
 snprintf
-
+corect way to include var in multiple files (extern in .h)
 range based for loop
 std array
 named initialization to structs unnamed
 varargs getops
-
+smart pointers
+move vs copy semantics
+std::algorithm
+std::string and std::stringview
+containers and iterators
+threading and synchronization (std::thread and std::mutex)
+shared memory/primitives/named pipe
+operators
+static assert
+variadic template 
+three way comparison
+malloc, sbrk or mmap
+naked attribute
+iso 26262
+what stdint actually gets you
+fork exec mmap smem
+standard ints vs rolling your own ints
+smart buffer struct with memory but also length data and bounds checking
 
 multiple inheritance
 
+zephyr shell
 
+assign to var and compare in one line 
+    if ((stream.random_data_source_fd =
+         randombytes_sysrandom_random_dev_open()) == -1) {
+        sodium_misuse(); /* LCOV_EXCL_LINE */
+    }

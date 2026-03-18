@@ -26,9 +26,11 @@ int main()
     }
     else                                    // fork returns PID of new process for parent process
     {
-        int child_status;
 
-        struct sockaddr_un addr;
+        int server_fd, new_socket;
+        ssize_t valread;
+        struct sockaddr_in add
+
         
         
 
