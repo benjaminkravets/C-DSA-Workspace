@@ -246,6 +246,15 @@ void bit_bits()
     // octal numbers can be delared with prefix 0
     printf("%i %i %i \r\n", 010, 011, 012);
 
+    // hex with 0x
+    printf("%i %i %i\r\n", 0x1, 0xF0, 0x10);
+
+    //scientific with E, here 51 * 10^3 and 1 * 10^2
+    printf("%f %lf \r\n", 51E3, 1E2);
+
+    //binary with 0b
+    printf("%d %i \r\n", 0b1, 0b10);
+
     // in a signed number, the first bit is the sign bit (1 for negative); there are 31 bits for the magnitude
     int32_t b = -1234;
 
@@ -372,11 +381,11 @@ int main()
     // designated_initialization();
     // inline_assembly();
     // pass_variadic();
-    // bit_bits();
+    bit_bits();
     // unaligned_access();
     // floats();
     // log(1, 2);
     // bitfields();
     // iso646();
-    swap_by_xor();
+    // swap_by_xor();
 }
