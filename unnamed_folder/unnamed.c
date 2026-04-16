@@ -366,6 +366,17 @@ void swap_by_xor(){
     printf("%i %i \r\n", a, b);
 }
 
+void handler(void) __attribute__((naked));
+
+void handler(void) {
+    __asm__ volatile {
+        "push %rbp\n"
+        "mov %rsp, %rbp\n"
+        "leave\n"
+        "ret\n"
+    }
+    //printf("naked \r\n");
+}
 int main()
 {
     // cases_share_code();
@@ -381,11 +392,12 @@ int main()
     // designated_initialization();
     // inline_assembly();
     // pass_variadic();
-    bit_bits();
+    // bit_bits();
     // unaligned_access();
     // floats();
     // log(1, 2);
     // bitfields();
     // iso646();
     // swap_by_xor();
+    handler();
 }
