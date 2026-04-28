@@ -305,6 +305,14 @@ void class_statics()
     cout << E::Afunction() << E::z << endl;
 }
 
+void three_way_comparison() {
+    int a = 1;
+    int b = 2;
+    int c = 3;
+
+    cout << (a <=> b) < 0 << endl;
+}
+
 int main()
 {
     // member_initializer();
@@ -321,6 +329,7 @@ int main()
     // RAII();
     // metafunctions();
     // using_constexpr();
-    class_statics();
+    //class_statics();
+    three_way_comparison();
     return 0;
 }
